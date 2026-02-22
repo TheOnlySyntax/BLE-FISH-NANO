@@ -63,7 +63,7 @@
 ## PCB
 
 > 🔧 **PCB schematic — incoming**
->
+><img width="448" height="551" alt="image" src="https://github.com/user-attachments/assets/dbfffab0-0697-4dfb-a995-54f89a270bed" />
 > A community-made PCB schematic is currently being worked on. It will include full hardware layout, component values, and a DIY build guide. Stay tuned.
 
 ---
