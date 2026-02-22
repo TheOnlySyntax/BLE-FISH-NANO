@@ -116,8 +116,6 @@ At full charge 4.2V → ADC reads **2.1V** ✅
 
 - `GPIO0` acts as a secondary LEFT button as a side effect of being the ESP32-C3 boot strapping pin. The firmware handles this gracefully after boot.
 - InfiShark's firmware is **closed-source**, but the hardware is open enough to build your own — enjoy! 🛠️
-- For open-source alternatives with similar functionality, check out [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) or [Bruce Firmware](https://github.com/pr3y/Bruce).
-
 ---
 
 ## 🤝 Contributing
