@@ -1,4 +1,6 @@
 # 🦈 BLEShark Nano — Pin Connections
+# ⚠️ Disclaimer
+This is a community-made reference board. I **do not sell it**, and it is **for educational or personal use only**. Please do **not redistribute or claim it as your own product**.
 
 > [!WARNING]
 > **Disclaimer:** This is a community-researched pinout. It is **not official** documentation from InfiShark. Information was gathered through reverse engineering and community investigation. **Use at your own risk.**
