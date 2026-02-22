@@ -64,10 +64,8 @@
 
 > 🔧 **PCB schematic — untested**
 > <img width="412" height="552" alt="image" src="https://github.com/user-attachments/assets/75fabd3a-624c-47ac-843d-a72382709402" />
-<img width="412" height="552" alt="image" src="https://github.com/user-attachments/assets/75fabd3a-624c-47ac-843d-a72382709402" />
-
 ><img width="448" height="551" alt="image" src="https://github.com/user-attachments/assets/dbfffab0-0697-4dfb-a995-54f89a270bed" />
-> A community-made PCB schematic is currently being worked on. It will include full hardware layout, component values, and a DIY build guide. Stay tuned.
+> The PCB is untested only try it on your watch!
 
 ---
 
