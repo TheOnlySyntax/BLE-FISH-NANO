@@ -10,7 +10,7 @@
 | | |
 |---|---|
 | **Official** | Seeed Studio XIAO ESP32-C3 |
-| **Compatible** | SuperMini ESP32-C3 *(note: WiFi & BLE may not work on clones)* |
+| **Compatible** | SuperMini ESP32-C3 *(note: WiFi & BLE will not work )* |
 
 ---
 
