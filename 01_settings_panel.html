@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        <title>BLEShark Settings</title>
+        <style>
+            :root {
+                --background-color-light: #f3f4f6;
+                --background-color-dark: #333;
+                --container-bg-light: #fff;
+                --container-bg-dark: #444;
+                --text-color-light: #333;
+                --text-color-dark: #ffffff;
+                --button-bg-light: #007BFF;
+                --button-bg-dark: #0056b3;
+                --blur-bg-light: rgba(255, 255, 255, 0.3);
+                --blur-bg-dark: rgba(0, 0, 0, 0.5);
+                --button-hover-bg-dark: #007BFF;
+                --paragraph-color-light: #666;
+                --paragraph-color-dark: #d2d2d2;
+                --wifissidbg-color-dark: #535353;
+                --wifissidbg-color-light: #eee;
+                --transition-time: 0.5s;
+            }
+            body, .container, h1, p, form, table, td, input, button, .networks, .network, .password-field, .loader, #status-container, #blur-background, #wifi-animation {
+                transition: background var(--transition-time) ease-in-out, color var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out, opacity var(--transition-time) ease-in-out;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background: var(--background-color-light);
+                overflow: hidden;
+                transition: background var(--transition-time) ease-in-out, color var(--transition-time) ease-in-out;
+            }
+            body.dark-mode {
+                background: var(--background-color-dark);
+                color: var(--text-color-dark);
+            }
+            .container {
+                text-align: center;
+                background: var(--container-bg-light);
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 350px;
+                width: 100%;
+                opacity: 0;
+                transform: scale(0.9);
+                transition: opacity 0.3s, transform 0.3s, padding-top 0.3s, padding-bottom 0.3s background 0.5s ease-in-out;
+                margin: 0 auto;
+            }
+            body.dark-mode .container td {
+                color: var(--text-color-dark);
+            }
+            body.dark-mode .container {
+                background: var(--container-bg-dark);
+                color: var(--text-color-dark);
+            }
+            .container, h1, p, form, table, td, input, button, .networks, .network, .password-field, .loader, #status-container, #blur-background, #wifi-animation {
+                transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+            .container.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+            .container.with-loader {
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            .container h1 {
+                color: #333;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.3s, transform 0.3s;
+            }
+            body.dark-mode .container h1 {
+                color: var(--text-color-dark);
+            }
+            .container.visible h1 {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .container p {
+                color: var(--paragraph-color-light);
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.3s, transform 0.3s;
+            }
+            body.dark-mode .container p {
+                color: var(--paragraph-color-dark);
+            }
+            .container.visible p {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            form {
+                margin-top: 20px;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: opacity 0.3s, transform 0.3s;
+            }
+            .container.visible form {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            td {
+                padding: 5px;
+            }
+            input[type='text'], input[type='password'] {
+                width: calc(100% - 20px);
+                padding: 8px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                transition: box-shadow var(--transition-time), transform var(--transition-time);
+                transform: scale(0.98);
+            }
+            input[type='text']:focus, input[type='password']:focus {
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+                transform: scale(1.00);
+            }
+            input[type='submit'], button {
+                background-color: var(--button-bg-light);
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+                transition: background-color var(--transition-time) ease-in-out, transform var(--transition-time);
+                transform: scale(0.98);
+            }
+            body.dark-mode button, body.dark-mode input[type='submit'] {
+                background-color: var(--button-bg-dark);
+            }
+            body.dark-mode button:hover, body.dark-mode input[type='submit']:hover {
+                background-color: var(--button-hover-bg-dark);
+            }
+            input[type='submit']:hover, button:hover {
+                background-color: #0056b3;
+                transform: scale(1.00);
+            }
+            input[type='submit']:active, button:active {
+                transform: scale(1);
+            }
+            .networks {
+                margin-top: 20px;
+                max-height: 300px;
+                overflow-y: auto;
+                opacity: 0;
+                position: relative;
+                transform: translateY(20px);
+                transition: opacity 0.3s, transform 0.3s;
+            }
+            .networks.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .network {
+                background: var(--wifissidbg-color-light);
+                padding: 10px;
+                margin: 5px 0;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: transform 0.3s, opacity 0.3s;
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            .network.visible {
+                opacity: 1;
+                transform: translateY(0);
+                transform: scale(0.98);
+            }
+        
+            .network-header {
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            body.dark-mode .network {
+                background: var(--wifissidbg-color-dark);
+                color: var(--text-color-dark);
+                transition: background 0.5s ease-in-out, color 0.5s ease-in-out, transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            }
+            .network:hover {
+                background: #ddd;
+                transform: scale(1.00);
+            }
+            body.dark-mode .network:hover {
+                background: #555; /* Slightly darker shade for hover */
+            }
+            .password-field {
+                display: none;
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+            }
+            .password-field input {
+                width: calc(100% - 22px);
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                height: 5px;
+            }
+            .password-field button {
+                background-color: #007BFF;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+                transition: background-color 0.3s, transform 0.3s;
+            }
+            .password-field button:hover {
+                background-color: #0056b3;
+            }
+            .password-field button:active {
+                transform: scale(1);
+            }
+            .loader {
+                border: 4px solid #f3f4f6;
+                border-top: 4px solid #007BFF;
+                border-radius: 50%;
+                width: 30px;
+                height: 30px;
+                animation: spin 1s linear infinite;
+                margin: 20px auto 0 auto;
+                display: none;
+                opacity: 0;
+                transition: opacity var(--transition-time) ease-in-out, transform var(--transition-time) ease-in-out;
+                transform: translateY(-20px);
+            }
+            .loader.visible {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            .password-field.expanded {
+                display: block;
+                padding-top: 8px;
+            }
+            #status-container {
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                max-width: 350px;
+                width: 100%;
+                opacity: 0;
+                transform: scale(0.9);
+                transition: opacity 0.3s, transform 0.3s;
+            }
+            #status-container.visible {
+                opacity: 1;
+                transform: scale(1);
+            }
+            /* Blur Background */
+            #blur-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: var(--blur-bg-light);
+                backdrop-filter: blur(10px);
+                z-index: 1000;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity var(--transition-time) ease-in-out;
+            }
+        
+            #blur-background.visible {
+                opacity: 1;
+                pointer-events: auto;
+            }
+        
+            body.dark-mode #blur-background {
+                background: var(--blur-bg-dark);
+            }
+        
+            /* WiFi Connecting Animation */
+            @keyframes wifiConnecting {
+                0% {
+                    opacity: 0.2;
+                    transform: scale(0.8);
+                }
+                50% {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+                100% {
+                    opacity: 0.2;
+                    transform: scale(0.8);
+                }
+            }
+        
+            #wifi-animation {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 80px;
+                height: 80px;
+                margin-top: -40px;
+                margin-left: -40px;
+                border-radius: 50%;
+                border: 4px solid #007BFF;
+                animation: wifiConnecting 2s infinite;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity 1s ease-in-out;
+                z-index: 1001;
+                display: none;
+            }
+        
+            #wifi-animation.visible {
+                display: block;
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .switch {
+                /*position: absolute;
+                top: 20px;
+                right: 20px;*/
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                z-index: 1100;
+            }
+            
+            .switch input {
+                display: none;
+            }
+            
+            .slider {
+                width: 50px;
+                height: 24px;
+                background-color: #ccc;
+                border-radius: 12px;
+                position: relative;
+                transition: background-color 0.5s ease-in-out;
+            }
+            .indicator {
+                margin-right:12px;
+                margin-top:1px;
+                position: absolute;
+                right: 10px; /* Adjust as needed */
+                font-weight: bold;
+            }
+            
+            .slider:before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: white;
+                border-radius: 50%;
+                top: 2px;
+                left: 2px;
+                transition: transform 0.5s ease-in-out;
+            }
+            
+            input:checked + .slider {
+                background-color: #007BFF;
+            }
+            
+            input:checked + .slider:before {
+                transform: translateX(26px);
+            }
+            
+            /* Smaller custom switch */
+            .small-switch {
+                margin-right: 10px;
+                width: 40px;
+                height: 20px;
+            }
+        
+            .small-slider {
+                width: 40px;
+                height: 20px;
+                border-radius: 10px;
+            }
+        
+            .small-slider:before {
+                width: 16px;
+                height: 16px;
+                top: 2px;
+                left: 2px;
+                transition: transform 0.5s ease-in-out;
+            }
+        
+            input:checked + .small-slider:before {
+                transform: translateX(20px);
+            }
+        
+            /* Additional styles for proper layout */
+            .settings-label {
+                display: flex;
+                align-items: center;
+                justify-content: space-between; /* Aligns the slider to the right */
+                margin-bottom: 10px;
+            }
+        
+            .settings-label span {
+                margin-left: 10px;
+            }
+            .back-button {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                font-size: 18px;
+                font-weight: bold;
+                color: #007BFF; /* Change this color to match your design */
+                cursor: pointer;
+                padding: 5px 10px;
+                background: #ffffff; /* Background color of the button */
+                border-radius: 5px;
+                box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.2s, color 0.2s;
+            }
+
+            .back-button:hover {
+                background-color: #f1f1f1; /* Background color on hover */
+                color: #0056b3; /* Text color on hover */
+            }
+
+            .error-popup {
+                max-width: 300px;
+                padding: 15px;
+                background-color: red;
+                color: white;
+                border-radius: 8px;
+                position: fixed;
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%) scale(0);
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease-in-out;
+                z-index: 1000;
+                opacity: 0;
+            }
+
+            .error-popup.show {
+                display: block;
+                transform: translateX(-50%) scale(1); /* "Pop" animation */
+                opacity: 1;
+            }
+
+            .error-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 8px;
+            }
+
+            .error-message {
+                font-size: 14px;
+            }
+
+            #final-container {
+                display: none;
+            }
+        
+            #confetti {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2000;
+                display: none;
+            }
+        
+            @keyframes confettiAnimation {
+                0% {
+                    transform: translateY(0) rotate(0deg);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(100vh) rotate(360deg);
+                    opacity: 0;
+                }
+            }
+        
+        </style>
+    </head>
+    <body onload='getUserPass()'> 
+        <div class="container visible" id="login-container">
+            <h1>Welcome to BLEShark!</h1>
+            <p>Login credentials should be visible on your BLEShark's screen.</p>
+            <form name="loginForm" onsubmit="return false;">
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" size="25" name="userid"></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" size="25" name="pwd"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" onclick="check(this.form)" value="Login">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <div class="container" id="setup-container" style="display: none;">
+            <div class="back-button" onclick="goBack()">
+                &lt;
+            </div>
+            <h1 id="setup-header">BLEShark Wi-Fi</h1>
+            <p id="setup-description">Press the button below to scan for available WiFi networks.</p>
+            <div class="loader" id="loader"></div>
+            <div class="networks" id="networks"></div>
+            <button onclick="scanNetworks()">Scan Networks</button>
+        </div>
+
+        <div class="container" id="settings-container" style="display: none;">
+            <h1 id="settings-header">BLEShark Settings</h1>
+            <p id="settings-description">Customize your BLEShark to its potential.</p>
+            <div class="networks" id="settings"></div>
+        </div>
+
+        <div class="container" id="creds-container" style="display: none;">
+            <h1 id="creds-header">Captured Credentials</h1>
+            <div id="creds" class="creds-list"></div>
+            <button onclick="goBack()" style="margin-top: 10px;">Back</button>
+        </div>
+
+        <div class="error-popup" id="errorContainer">
+            <div class="error-title" id="errorTitle">Error!</div>
+            <div class="error-message" id="errorMessage">This is an error message.</div>
+        </div>
+
+        <div class="container" id="keypad-container" style="display: none;">
+            <div class="back-button" onclick="goBack()">
+                &lt;
+            </div>
+            <h1 id="keypad-header">Edit Macros & Commands</h1>
+            <div id="keypad-settings"></div>
+            <button onclick="validateInputs()" style="margin-top: 10px;">Apply</button>
+        </div>
+          
+
+        <div class="container" id="status-container" style="display: none;">
+            <div class="back-button" onclick="goBack()">
+                &lt;
+            </div>
+        <h1 id="status-header"></h1>
+        <p id="status-description"></p>
+        </div>
+
+        <div id="blur-background"></div>
+        <div id="wifi-animation"></div>
+
+        <div class="switch" style="position: absolute; top: 20px; right: 20px;">
+            <input type="checkbox" id="dark-mode-switch">
+            <label for="dark-mode-switch" class="slider"></label>
+        </div>
+
+        </div>
+
+        <div class="container" id="final-container" style="display: none;">
+            <h1>You're all set!</h1>
+            <p>Press "restart" to restart your BLEShark & apply the changes.</p>
+            <button onclick="transitionScreens('final-container', 'status-container', restartBLEShark);">Restart</button>
+            <div class="back-button" onclick="goBack()">
+                &lt;
+            </div>
+        </div>
+
+        <div id="confetti"></div>
+
+        <script>
+            encodedUsername = "";
+            encodedPassword = "";
+            function getUserPass() {
+                fetch('/getUserPass') 
+                    .then(response => response.json())
+                    .then(data => {
+                        encodedUsername = btoa(data.user);
+                        encodedPassword = btoa(data.pass);
+                    })
+                    .catch(error => {
+                        transitionScreens("login-container", "status-contianer");
+                        console.error('Failed to get login credentials:', error);
+                        displayStatus("Error!", "Failed to get login creds: " + error);
+                    });
+            }
+        
+            document.getElementById('dark-mode-switch').addEventListener('change', function() {
+                if (this.checked) {
+                    setTimeout(() => document.body.classList.add('dark-mode'), 10);
+                } else {
+                    setTimeout(() => document.body.classList.remove('dark-mode'), 10);
+                }
+            });
+        
+            function check(form) {
+                const inputUsername = btoa(form.userid.value);
+                const inputPassword = btoa(form.pwd.value);
+        
+                if (inputUsername === encodedUsername && inputPassword === encodedPassword) {
+                    transitionScreens('login-container', 'settings-container', displaySettings);
+                } else {
+                    createErrorPopup('Password or username are wrong. Make sure the capitals and numbers are correct! (e.g. bleshark123 ❎ BLEShark123 ✅)'); // displays error message
+                }
+            }
+            function displaySettings() {
+                const settingsContainer = document.getElementById('settings-container');
+                settingsContainer.innerHTML = `
+                    <h1 id="settings-header">BLEShark Settings</h1>
+                    <p id="settings-description">Customize your BLEShark to its potential.</p>
+                    <div class="networks" id="settings-networks"></div>
+                    <button onclick='applySettings()' style="margin-top:5px;">Apply Settings</button>
+                `;
+                settingsContainer.style.display = 'block';
+                getFromBLEShark();
+                        
+                const settings = [
+                    {
+                        title: '🛜 Wi-Fi Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Change Wi-Fi network:</span>
+                                <button onclick="scanNetworks()" style="width: 40%; margin-left: 13px;">Scan Wi-Fi</button><div id="networks"></div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: '🔒 Security Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Change Login User:</span>
+                                <label><input type="text" id="setting1" style="margin:0px; width:140px; margin-right:10px;" placeholder="Username" /></label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Change Login Pass:</span>
+                                <label><input type="text" id="setting2" style="margin:0px; width:140px; margin-right:10px;" placeholder="Password" /></label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Enable Random Password:</span>
+                                <label class="switch small-switch">
+                                    <input type="checkbox" id="security3" />
+                                    <div class="slider small-slider"></div>
+                                </label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Emergency Mode:</span>
+                                <label class="switch small-switch">
+                                    <input type="checkbox" id="emergency-mode" />
+                                    <div class="slider small-slider"></div>
+                                </label>
+                            </div>
+                        `
+                    },
+                    {
+                        title: '❌ Pentesting Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>BLE Spam Delay:</span>
+                                <input type="number" id="ble-delay" min="1" max="100" style="width: 50px;margin-right: 10px;" />
+                            </div>
+                            <div class="settings-label">
+                                <span>Deauth Delay:</span>
+                                <input type="number" id="deauth-delay" min="1" max="100" style="width: 50px;margin-right: 10px;" />
+                            </div>
+                            <div class="settings-label">
+                                <span>Max Targeted Networks:</span>
+                                <input type="number" id="num-wifi-networks" min="10" max="9999" style="width: 50px;margin-right: 10px;" />
+                            </div>
+                            <div class="settings-label">
+                                <span>Custom Networks File:</span>
+                                <button onclick="uploadFile(3)" style="width: 40%; margin-left: 30px;">Upload CSV</button>
+                            </div>
+                        `
+                    },
+                    {
+                        title: '💀 Portal Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Wi-Fi Name:</span>
+                                <label><input type="text" id="setting3" style="margin:0px; width:200px;" placeholder="SSID" /></label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Captive Portal File:</span>
+                                <button onclick="uploadFile(2)" style="width: 40%; margin-left: 30px;">Upload HTML</button>
+                            </div>
+                            <div class="settings-label">
+                                <span>Get Saved Creds:</span>
+                                <button onclick="getCreds()" style="width: 40%; margin-left: 50px;">Receive</button><div id="networks"></div>
+                            </div>
+                            <div class="settings-label">
+                                <span>Clear Saved Creds:</span>
+                                <button onclick="clearCreds()" style="width: 40%; margin-left: 38px;">Clear</button><div id="networks"></div>
+                            </div>
+                        `
+                    },
+                    {
+                        title: '🔃 Update Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Check & Update</span>
+                                <button onclick="checkForUpdates()" style="width: 40%; margin-left: 30px;">Update</button>
+                            </div>
+                            <div class="settings-label">
+                                <span>Automatic Updates</span>
+                                <label class="switch small-switch">
+                                    <input type="checkbox" id="auto-update" />
+                                    <div class="slider small-slider"></div>
+                                </label>
+                            </div>
+                        `
+                    }, 
+                    {
+                        title: '🌐 Apps Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>BadBT File:</span>
+                                <button onclick="uploadFile(0)" style="width: 40%; margin-left: 30px;">Upload</button>
+                            </div>
+                            <div class = "settings-label">
+                                <span>BadBT Delay:</span>
+                                <label><input type="text" id="ducky-delay" style="margin:0px; width:50px;" placeholder="Delay"/></label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Keypad Settings:</span>
+                                <button onclick="openKeypadMenu()" style="width: 40%; margin-left: 30px;">Open Menu</button>
+                            </div>
+                            <div class="settings-label">
+                                <span>TxtViewer File:</span>
+                                <button onclick="uploadFile(1)" style="width: 40%; margin-left: 30px;">Upload</button>
+                            </div>`
+                    },
+                    {
+                        title: '📺 Infrared Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Use NA Codes:</span>
+                                <label class="switch small-switch">
+                                    <input type="checkbox" id="is-NA-Codes" />
+                                    <div class="slider small-slider"></div>
+                                </label>
+                            </div>`
+                    },
+                    {
+                        title: '🧩 Other Settings',
+                        content: `
+                            <div class="settings-label">
+                                <span>Screensaver Timeout (s):</span>
+                                <label><input type="text" id="screensaver-timeout" style="margin:0px; width:50px;" placeholder="Timeout"/></label>
+                            </div>
+                            <div class="settings-label">
+                                <span>Enable Screensaver:</span>
+                                <label class="switch small-switch">
+                                    <input type="checkbox" id="enable-screensaver" />
+                                    <div class="slider small-slider"></div>
+                                </label>
+                            </div>
+                        `
+                    }
+                ];
+                
+                const settingsNetworksDiv = document.getElementById('settings-networks');
+                settings.forEach((setting, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'network';
+                    div.innerHTML = `
+                        <div class="network-header">
+                            <b>${setting.title}</b>
+                            <span class="indicator">+</span>
+                        </div>
+                        <div class="password-field" style="display: none;">${setting.content}</div>
+                    `;
+                    div.onclick = () => togglePasswordField(div, setting.title);
+                    settingsNetworksDiv.appendChild(div);
+                    
+                    setTimeout(() => {
+                        div.classList.add('visible');
+                    }, 100 * index);
+                });
+                settingsNetworksDiv.classList.add('visible'); 
+            }
+            
+            function scanNetworks() {
+                const blurBackground = document.getElementById('blur-background');
+                const wifiAnimation = document.getElementById('wifi-animation');
+                blurBackground.classList.add('visible');
+                wifiAnimation.classList.add('visible');
+
+                setTimeout(() => {
+                    fetch('/scan')
+                        .then(response => response.json())
+                        .then(data => {
+                            blurBackground.classList.remove('visible');
+                            wifiAnimation.classList.remove('visible');
+                            transitionScreens('settings-container', 'setup-container');
+                        
+                            document.getElementById('setup-header').textContent = 'Available Networks';
+                            document.getElementById('setup-description').textContent = 'Select a network to connect to it.';
+                            const networksDiv = document.getElementById('networks');
+                            networksDiv.innerHTML = '';
+                            if (data.networks.length === 0) {
+                                const noNetworksDiv = document.createElement('div');
+                                noNetworksDiv.className = 'no-networks';
+                                noNetworksDiv.innerHTML = `
+                                    <div class="network-header">
+                                        No networks found! Press re-scan to try again. If problem persists, restart your BLEShark.
+                                    </div>
+                                `;
+                                networksDiv.appendChild(noNetworksDiv);
+                            } else {
+                                data.networks.forEach((network, index) => {
+                                    const div = document.createElement('div');
+                                    div.className = 'network';
+                                    div.innerHTML = `
+                                        <div class="network-header">
+                                            ${network.ssid} (${network.rssi} dBm)
+                                            <span class="indicator">+</span>
+                                        </div>
+                                    `;
+                                    div.onclick = () => togglePasswordField(div, network.ssid);
+                                    networksDiv.appendChild(div);
+                                    
+                                    setTimeout(() => {
+                                        div.classList.add('visible');
+                                    }, 100 * index);
+                                });
+                            }
+                            networksDiv.classList.add('visible'); 
+                        })
+                        .catch(error => {
+                            blurBackground.classList.remove('visible');
+                            wifiAnimation.classList.remove('visible');
+                            console.error('Error:', error);
+                        });
+                }, 1000); // Delay to ensure the blur background transition happens first
+            }
+            function getCreds() {
+                // Fetch the saved credentials (from the BLEShark )
+                fetch('/getCreds')
+                    .then(response => response.json())
+                    .then(data => {
+                        transitionScreens('settings-container', 'creds-container');
+                    
+                        // Display the credentials in the new container
+                        const credsDiv = document.getElementById('creds');
+                        credsDiv.innerHTML = '';
+                        if (data.creds.length === 0) {
+                            credsDiv.innerHTML = '<p>No captured credentials found.</p>';
+                        } else {
+                            data.creds.forEach((cred, index) => {
+                                const credItem = document.createElement('div');
+                                credItem.className = 'network';
+                                credItem.innerHTML = `
+                                    <div class="network-header">
+                                        <b>${cred.email}</b>
+                                        <span class="indicator">+</span>
+                                    </div>
+                                    <div class="password-field" style="display: none;">${cred.password}</div>
+                                `;
+                                credItem.onclick = () => togglePasswordField(credItem, cred.email);
+                                credsDiv.appendChild(credItem);
+                                
+                                setTimeout(() => {
+                                    credItem.classList.add('visible');
+                                }, 100 * index);
+                            });
+                        }
+                        credsDiv.classList.add('visible');
+                    })
+                    .catch(error => {
+                        console.error('Failed to get credentials:', error);
+                        displayStatus('Error', 'Failed to retrieve credentials: ' + error);
+                    });
+            }
+            function clearCreds() {
+                fetch('/clearCreds') 
+                    .then(response => response.json())
+                    .then(data => {
+                        transitionScreens('settings-container', 'status-container');
+                        displayStatus('Success!', 'Cleared out credentials from storage.');
+                    })
+                    .catch(error => {
+                        transitionScreens('settings-container', 'status-container');
+                        console.error('Failed to clear credentials:', error);
+                        displayStatus('Error', 'Failed to clear credentials: ' + error);
+                    });
+            }
+            function checkForUpdates() {
+                fetch('/checkForUpdates') 
+                    .then(response => response.json())
+                    .then(data => {
+                        transitionScreens('settings-container', 'status-container');
+                        displayStatus('Success!', 'Check your BLEShark, it should update if there is a new update found.');
+                    })
+                    .catch(error => {
+                        transitionScreens('settings-container', 'status-container');
+                        console.error('Failed.', error);
+                        displayStatus('Error', 'Failed to check for updates: ' + error);
+                    });
+            }
+            function togglePasswordField(networkDiv, ssid) {
+                let passwordField = networkDiv.querySelector('.password-field');
+                const indicator = networkDiv.querySelector('.indicator');
+                if (!passwordField) {
+                    passwordField = document.createElement('div');
+                    passwordField.className = 'password-field';
+                    passwordField.innerHTML = `
+                        <input type="password" style="height:15px;" placeholder="Enter password for '${ssid}'" />
+                        <button onclick="connectToNetwork('${ssid}', this.previousElementSibling.value)">Connect</button>
+                    `;
+                    networkDiv.appendChild(passwordField);
+                    // Allow for a slight delay to add the 'expanded' class for transition
+                    setTimeout(() => {
+                        passwordField.style.display = 'block';
+                        passwordField.classList.add('expanded');
+                        passwordField.style.maxHeight = passwordField.scrollHeight + 'px';
+                        indicator.textContent = '-';
+                    }, 10);
+                } else {
+                    if (passwordField.classList.contains('expanded')) {
+                        passwordField.style.maxHeight = null;
+                        passwordField.classList.remove('expanded');
+                        setTimeout(() => {
+                            if (!passwordField.classList.contains('expanded')) {
+                                passwordField.style.display = 'none';
+                                indicator.textContent = '+';
+                            }
+                        }, 300);
+                    } else {
+                        passwordField.style.display = 'block';
+                        setTimeout(() => {
+                            passwordField.classList.add('expanded');
+                            passwordField.style.maxHeight = passwordField.scrollHeight + 'px';
+                            indicator.textContent = '-';
+                        }, 10);
+                    }
+                }
+            
+                // Add event listeners to stop that thing for all interactive elements
+                const inputs = passwordField.querySelectorAll('input, button, label');
+                inputs.forEach(input => {
+                    input.addEventListener('click', (event) => event.stopPropagation());
+                });
+            }
+            function getFromBLEShark() {
+                fetch('/getSettings')
+                    .then(response => response.json())
+                    .then(settings => {
+                        document.getElementById('setting1').placeholder = settings.loginUser;
+                        document.getElementById('setting2').placeholder = settings.loginPassword;
+                        document.getElementById('security3').checked = settings.enableRandomPass === "1";
+                        document.getElementById('ble-delay').placeholder = settings.BLEDelay;
+                        document.getElementById('num-wifi-networks').placeholder = settings.numWifiNetworks;
+                        document.getElementById('deauth-delay').placeholder = settings.deauthDelay;
+                        document.getElementById('setting3').placeholder = settings.evilPortalSSID;
+                        document.getElementById('auto-update').checked = settings.autoUpdate === "1";
+                        document.getElementById('emergency-mode').checked = settings.emergencyMode === "1";
+                        document.getElementById('ducky-delay').placeholder = settings.duckyDelay;
+                        document.getElementById('is-NA-Codes').checked = settings.isNACodes === "1";
+                        document.getElementById('screensaver-timeout').placeholder = settings.screensaverTimeout;
+                        document.getElementById('enable-screensaver').checked = settings.enableScreensaver === "1";
+                    })
+                    .catch(error => {
+                        console.error('Failed to get settings:', error);
+                    });
+            }
+            function goBack() {
+                const currentContainer = document.querySelector('.container.visible');
+                const previousContainer = 'settings-container';
+
+                transitionScreens(currentContainer.id, previousContainer);
+            }
+            function uploadFile(fileType) {
+                const fileInput = document.createElement('input');
+                fileInput.type = 'file';
+                fileInput.accept = '.txt,.bin,.hex,.html';
+                fileInput.onchange = () => {
+                    const file = fileInput.files[0];
+                    if (file) {
+                        // Check if the file size exceeds 25kb (25 * 1024 bytes)
+                        const maxFileSize = 25 * 1024; // 25kb in bytes
+                        if (file.size > maxFileSize) {
+                            transitionScreens('settings-container', 'status-container');
+                            console.error('Failed to upload file: More than limit - 25kb');
+                            displayStatus('Error', 'More than limit - 25kb');
+                            return;
+                        }
+                    
+                        const reader = new FileReader();
+                        reader.onload = () => {
+                            const fileContent = reader.result;
+                            fetch(`/uploadfile?type=${fileType}`, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/octet-stream'
+                                },
+                                body: fileContent
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                transitionScreens('settings-container', 'status-container');
+                                console.log('File uploaded successfully:', data);
+                                displayStatus('Success', 'File uploaded successfully.');
+                            })
+                            .catch(error => {
+                                transitionScreens('settings-container', 'status-container');
+                                console.error('Failed to upload file:', error);
+                                displayStatus('Error', 'Failed to upload file.');
+                            });
+                        };
+    
+                        reader.readAsArrayBuffer(file);
+                    }
+                };
+            
+                fileInput.click();
+            }
+            
+            const maxInputs = 8;
+            const validCommands = [
+              "ctrl", "shift", "alt", "fn", "esc", "enter", "f1", "f2", "f3", "f4", "f5", 
+              "f6", "f7", "f8", "f9", "f10", "f11", "f12", "tab", "space", "backspace", 
+              "delete", "home", "end", "pageup", "pagedown", "insert", "arrowup", 
+              "arrowdown", "arrowleft", "arrowright", "capslock", "numlock", "scrolllock", 
+              "meta", "playpause", "stop", "nexttrack", "prevtrack", "volup", "voldown", "printscreen"
+            ];            
+            let keypadSettings = "";
+                    
+            function openKeypadMenu() {
+              transitionScreens('settings-container', 'keypad-container');
+              generateInputFields(); 
+            }
+            
+            function generateInputFields() {
+              const settingsDiv = document.getElementById('keypad-settings');
+              settingsDiv.innerHTML = '';
+
+              fetch('/getKeypadInfo')
+                .then(response => response.text())
+                .then(data => {
+                  const settings = data.split(',');
+                
+                  for (let i = 1; i <= maxInputs; i++) {
+                    const inputContainer = document.createElement('div');
+                    inputContainer.className = 'settings-label';
+                    inputContainer.innerHTML = `
+                      <span>Option ${i}:</span>
+                      <label>
+                        <input type="text" id="keypadsetting${i}" style="margin:0px; width:140px; margin-right:10px;" placeholder="${settings[i]}" />
+                      </label>
+                    `;
+                    settingsDiv.appendChild(inputContainer);
+                  
+                    // Populate the input fields with the fetched settings if available
+                    const inputElement = document.getElementById(`keypadsetting${i}`);
+                    if (inputElement) {
+                      inputElement.placeholder = settings[i - 1] || ''; // Use fetched setting or empty string if no setting is found
+                    }
+                  }
+                })
+                .catch(error => {
+                  createErrorPopup('Failed to get keypad settings: ' + error);
+                });
+            }
+            
+            function validateInputs() {
+                let isValid = true;
+                let values = [];
+                        
+                for (let i = 1; i <= maxInputs; i++) {
+                    const inputElement = document.getElementById(`keypadsetting${i}`);
+                    let input = '';
+                
+                    if (inputElement) {
+                        input = inputElement.value.trim();
+                        // Use placeholder if no input is provided
+                        if (!input) {
+                            input = inputElement.placeholder.trim();
+                        }
+                    }
+                
+                    const parts = input.split('+');
+                
+                    if (!input) {
+                        createErrorPopup(`Option ${i} is empty. Please enter a value.`);
+                        isValid = false;
+                        continue;
+                    }
+                
+                    for (let j = 0; j < parts.length; j++) {
+                        const part = parts[j].toLowerCase();
+                        if (!/^[a-z0-9]$/.test(part) && !validCommands.includes(part)) {
+                            createErrorPopup(`Invalid input at Option ${i}: "${input}". Please use: a letter, a number, or valid commands (github.com/grdashark/BLEShark/wiki/ separated by +.`);
+                            isValid = false;
+                            break;
+                        }
+                    }
+                
+                    // If input is valid, add it to the values array
+                    if (isValid) {
+                        values.push(input);
+                    }
+                }
+                if (isValid) {
+                    keypadSettings = values.join(',');
+                    console.log(keypadSettings);
+                    transitionScreens('keypad-container', 'status-container');
+                    displayStatus('Success!', 'Go back and press "apply settings" to save the macros or commands to the BLEShark!');
+                }
+            }
+
+            function applySettings() {
+                // quick gathering
+                const loginUser = document.getElementById('setting1').value;
+                const loginPassword = document.getElementById('setting2').value;
+                const enableRandomPass = document.getElementById('security3').checked;
+                const BLEDelay = document.getElementById('ble-delay').value;
+                let numWifiNetworks = document.getElementById('num-wifi-networks').value;
+                const deauthDelay = document.getElementById('deauth-delay').value;
+                const evilPortalSSID = document.getElementById('setting3').value;
+                const autoUpdate = document.getElementById('auto-update').checked;
+                const emergencyMode = document.getElementById('emergency-mode').checked;
+                const duckyDelay = document.getElementById('ducky-delay').value;
+                const isNACodes = document.getElementById('is-NA-Codes').checked;
+                const screensaverTimeout = document.getElementById('screensaver-timeout').value;
+                const enableScreensaver = document.getElementById('enable-screensaver').checked;
+
+                // Valid or not?
+                let valid = true;
+            
+                if (enableRandomPass && loginPassword) {
+                    createErrorPopup("You can't have 'Enable Random Password' enabled with a login password!");
+                    valid = false;
+                }
+            
+                if (BLEDelay > 999) {
+                    createErrorPopup("Max BLESpam delay is 999 ms (1 second).");
+                    valid = false;
+                }
+            
+                if ((numWifiNetworks < 10) && (numWifiNetworks != "")) {
+                    createErrorPopup("The least amount recommended is 10 for WiFi spamming networks.");
+                    valid = false;
+                }
+            
+                if (numWifiNetworks > 9999) {
+                    createErrorPopup("The maximum recommended is 9999 for WiFi spamming networks.");
+                    valid = false;
+                }
+            
+                if (evilPortalSSID.length > 32) {
+                    createErrorPopup("Maximum Evil Portal Wi-Fi Name length is 32.");
+                    valid = false;
+                }
+            
+                if (deauthDelay > 999) {
+                    createErrorPopup("Maximum delay is 999 ms (1 second).");
+                    valid = false;
+                }
+            
+                if (loginPassword.length > 63) {
+                    createErrorPopup("Max password length is 63 characters.");
+                    valid = false;
+                }
+                if (loginUser.length > 18) {
+                    createErrorPopup("Max username length is 18 characters.");
+                    valid = false;
+                }
+                if (duckyDelay > 2000) {
+                    createErrorPopup("Max Bad-BT Delay is 2000ms.");
+                }
+                if (screensaverTimeout < 5) {
+                    createErrorPopup("Minimum timeout before screensaver is 5 seconds.");
+                    valid = false;
+                }
+                if (screensaverTimeout > 3600) {
+                    createErrorPopup("Maximum timeout before screensaver is 3600 seconds (1 hour).");
+                    valid = false;
+                }
+            
+                // If not valid, prevent applying settings
+                if (!valid) {
+                    return;
+                }
+            
+                const settings = {};
+
+                if (loginUser) settings.loginUser = loginUser;
+                if (loginPassword) settings.loginPassword = loginPassword;
+                settings.enableRandomPass = enableRandomPass;
+                if (BLEDelay) settings.BLEDelay = BLEDelay;
+                if (numWifiNetworks) settings.numWifiNetworks = numWifiNetworks;
+                if (deauthDelay) settings.deauthDelay = deauthDelay;
+                if (evilPortalSSID) settings.evilPortalSSID = evilPortalSSID;
+                settings.autoUpdate = autoUpdate;
+                settings.emergencyMode = emergencyMode;
+                if (keypadSettings) settings.keypadSettings = keypadSettings;
+                if (duckyDelay) settings.duckyDelay = duckyDelay;
+                settings.isNACodes = isNACodes;
+                settings.screensaverTimeout = screensaverTimeout;
+                settings.enableScreensaver = enableScreensaver;
+            
+                // Send settings to the BLEShark via HTTP POST
+                fetch('/applySettings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(settings)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    transitionScreens('settings-container', 'final-container', showConfetti);
+                })
+                .catch(error => {
+                    transitionScreens('settings-container', 'status-container');
+                    displayStatus('Error', 'Failed to apply settings: ' + error);
+                });
+            }
+            function createErrorPopup(message = "An unexpected error occurred!") {
+                const errorContainer = document.getElementById('errorContainer');
+                const errorMessage = document.getElementById('errorMessage');
+
+                errorMessage.textContent = message;
+                errorContainer.classList.add('show');
+                setTimeout(() => {
+                    errorContainer.classList.remove('show');
+                }, 3000);
+            }
+            function restartBLEShark() {
+                displayStatus("Restarting...", "Your BLEShark will restart in 5");
+
+                let countdown = 5;
+                const countdownInterval = setInterval(() => {
+                    countdown -= 1;
+                    if (countdown > 0) {
+                        displayStatus("Restarting...", `Your BLEShark will restart in ${countdown}`);
+                    } else {
+                        clearInterval(countdownInterval);
+                        displayStatus("Restarting...", "Restarting now...");
+                        fetch("/restart")
+                            .then(response => {
+                                if (response.ok) {
+                                    console.log("Restart request sent successfully.");
+                                } else {
+                                    displayStatus("Error", "Error sending restart request: " + response);
+                                    console.error("Error sending restart request.");
+                                }
+                            })
+                            .catch(error => {
+                                console.error("Fetch error:", error);
+                            });
+                    }
+                }, 1000); 
+            }
+        
+            function connectToNetwork(ssid, password) {
+                const blurBackground = document.getElementById('blur-background');
+                const wifiAnimation = document.getElementById('wifi-animation');
+                blurBackground.classList.add('visible');
+                wifiAnimation.classList.add('visible');
+        
+                setTimeout(() => {
+                    fetch('/connect', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ ssid, password }),
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        blurBackground.classList.remove('visible');
+                        wifiAnimation.classList.remove('visible');
+                        if (data.status == "ok") {
+                            transitionScreens("status-container", "status-container");
+                            displayStatus('Connection Successful', `Connected to ${ssid}`, true, true);
+                        } else {
+                            transitionScreens("status-container", "status-container");
+                            displayStatus('Connection Failed', `Failed to connect to ${ssid}`, false, true);
+                        }
+                    })
+                    .catch(error => {
+                        blurBackground.classList.remove('visible');
+                        wifiAnimation.classList.remove('visible');
+                        console.error('Error:', error);
+                        transitionScreens("status-container", "status-container");
+                        displayStatus('Connection Failed', 'Failed to connect. Press re-scan to go back and try again.', false, true);
+                    });
+                }, 600); // Delay to ensure the blur background transition happens first
+            }
+        
+            function transitionScreens(fromId, toId, callback) {
+                const fromScreen = document.getElementById(fromId);
+                const toScreen = document.getElementById(toId);
+                fromScreen.classList.remove('visible');
+                setTimeout(() => {
+                    fromScreen.style.display = 'none';
+                    toScreen.style.display = 'block';
+                    setTimeout(() => {
+                        toScreen.classList.add('visible');
+                        if (callback) callback(); // Call the callback function if provided
+                    }, 10); // Delay to ensure CSS transition
+                }, 300);
+            }
+        
+            function showConfetti(item) {
+                const confettiDiv = document.getElementById('confetti');
+                confettiDiv.style.display = 'block';
+                if (item) {
+                    const cont = document.getElementById('final-container');
+                    cont.innerHTML = `
+                        <h1>You're all set!</h1>
+                        <p>You're connected! Press the button below to go back & apply settings.</p>
+                        <button onclick="goBack();">Go Back</button>
+                    `;
+                }
+                else {
+                    const cont = document.getElementById('final-container');
+                    cont.innerHTML = `
+                        <h1>You're all set!</h1>
+                        <p>Press "restart" to restart your BLEShark & apply the changes.</p>
+                        <button onclick="transitionScreens('final-container', 'status-container', restartBLEShark);">Restart</button>
+                        <div class="back-button" onclick="goBack()">
+                            &lt;
+                        </div>
+                    `;
+                }
+                for (let i = 0; i < 100; i++) {
+                    let confetti = document.createElement('div');
+                    let isCircle = Math.random() > 0.5; // 50% chance to be a circle
+                    let size = Math.random() * 10 + 5; 
+        
+                    confetti.style.width = isCircle ? `${size}px` : `${size * 1.5}px`; 
+                    confetti.style.height = `${size}px`;
+                    confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                    confetti.style.position = 'absolute';
+                    confetti.style.top = `${Math.random() * -20}vh`;
+                    confetti.style.left = `${Math.random() * 100}vw`;
+                    confetti.style.opacity = 0.7;
+                    confetti.style.borderRadius = isCircle ? '50%' : '0%'; 
+                    confetti.style.animation = `confettiAnimation 3s ease-in-out forwards ${Math.random() * 2}s`;
+                    confettiDiv.appendChild(confetti);
+                }
+                setTimeout(() => {
+                    confettiDiv.style.display = 'none';
+                    confettiDiv.innerHTML = ''; // Clear the confetti
+                }, 5000);
+            }
+        
+            function displayStatus(header, description, success, wifi) {
+                const statusContainer = document.getElementById('status-container');
+                document.getElementById('status-header').textContent = header;
+                document.getElementById('status-description').textContent = description;
+        
+                statusContainer.querySelectorAll('button').forEach(button => button.remove());
+                if (wifi) {
+                    if (success) {
+                        const continueButton = document.createElement('button');
+                        continueButton.textContent = "Continue";
+                        continueButton.onclick = () => transitionScreens('status-container', 'final-container', showConfetti(1));
+                        statusContainer.appendChild(continueButton);
+                    } else {
+                        const rescanButton = document.createElement('button');
+                        rescanButton.textContent = "Go Back";
+                        rescanButton.onclick = () => {
+                            transitionScreens('status-container', 'setup-container');
+                            rescanButton.remove();
+                        };
+                        statusContainer.appendChild(rescanButton);
+                    }
+                }
+        
+                transitionScreens('setup-container', 'status-container');
+            }
+        </script>
+    </body>
+</html>

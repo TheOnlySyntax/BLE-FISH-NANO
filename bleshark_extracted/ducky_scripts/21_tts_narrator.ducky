@@ -1,0 +1,4 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Add-Type -As System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Hello, I am your computer speaking. I am alive now, and I just wanted to say... Your browser history is terrifying!')"

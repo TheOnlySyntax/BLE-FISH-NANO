@@ -1,0 +1,4 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -Command "Start-Process powershell -Verb RunAs"

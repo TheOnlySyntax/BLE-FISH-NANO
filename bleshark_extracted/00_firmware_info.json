@@ -1,0 +1,45 @@
+{
+  "file_size_bytes": 1718320,
+  "md5": "42f1cba16a156b2b0d019e6b88a2dd35",
+  "sha256": "7e65bd6ffb6d4819898bbe2984544ab2d575fa417b0a039c42d4191e75417388",
+  "chip": "ESP32-C3",
+  "magic": "0xe9",
+  "segments": 5,
+  "entry_point": "0x403820c6",
+  "idf_version": "v4.4.7",
+  "build_date": "Mar  5 2024",
+  "build_time": "12:29:20",
+  "developer_path": "C:\\Users\\User\\Documents\\InfiShark Tech\\BLEShark",
+  "segment_map": [
+    {
+      "index": 1,
+      "load_addr": "0x3c130020",
+      "size": 444528,
+      "file_offset": "0x00000018"
+    },
+    {
+      "index": 2,
+      "load_addr": "0x3fc91c00",
+      "size": 14208,
+      "file_offset": "0x0006c890"
+    },
+    {
+      "index": 3,
+      "load_addr": "0x42000020",
+      "size": 1183584,
+      "file_offset": "0x00070018"
+    },
+    {
+      "index": 4,
+      "load_addr": "0x3fc95380",
+      "size": 3276,
+      "file_offset": "0x00190f80"
+    },
+    {
+      "index": 5,
+      "load_addr": "0x40380000",
+      "size": 72620,
+      "file_offset": "0x00191c54"
+    }
+  ]
+}

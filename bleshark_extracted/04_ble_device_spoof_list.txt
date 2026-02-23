@@ -1,0 +1,162 @@
+BLE DEVICE SPOOFING LIST (Google Fast Pair)
+==================================================
+
+Total devices: 157
+
+  1. BBisto CSR8670 Dev Board
+  2. Anti-Spoof Test
+  3. Anti-Spoof Test 2
+  4. Google Gphones
+  5. Google Gphones 2
+  6. Google Gphones 3
+  7. Test 00000D
+  8. Android Auto
+  9. Android Auto 2
+ 10. Foocorp Foophones
+ 11. Foocorp Foophones 2
+ 12. Test Android TV
+ 13. Test Android TV 2
+ 14. Test 000035
+ 15. Test 000035 2
+ 16. Fast Pair Headphones
+ 17. Fast Pair Headphones 2
+ 18. Fast Pair Headphones 3
+ 19. Fast Pair Headphones 4
+ 20. LG HBS1110
+ 21. Smart Controller 1
+ 22. BLE-Phone
+ 23. Goodyear
+ 24. Smart Setup
+ 25. ATS2833
+ 26. Google Gphones Transfer
+ 27. Galaxy S23 Ultra
+ 28. Galaxy S20+
+ 29. Bose NC 700
+ 30. Bose QuietComfort 35 II
+ 31. Bose QuietComfort 35 II 2
+ 32. JBL Flip 6
+ 33. JBL Buds Pro
+ 34. JBL Live 300TWS
+ 35. JBL Everest 110GA
+ 36. Pixel Buds
+ 37. Google Pixel buds
+ 38. Google Pixel buds 2
+ 39. Sony XM5
+ 40. Sony WF-1000XM4
+ 41. Razer Hammerhead TWS
+ 42. Razer Hammerhead TWS X
+ 43. Soundcore Spirit Pro GVA
+ 44. LG HBS-835S
+ 45. AIAIAI TMA-2 (H60)
+ 46. Libratone Q Adapt On-Ear
+ 47. Libratone Q Adapt On-Ear 2
+ 48. boAt  Airdopes 621
+ 49. Jabra Elite 2
+ 50. Beoplay E8 2.0
+ 51. Sony WF-1000X
+ 52. WH-1000XM4
+ 53. B&O Earset
+ 54. ATH-CK1TW
+ 55. PLT V8200 Series
+ 56. JBL TUNE760NC
+ 57. JBL TUNE770NC
+ 58. TCL MOVEAUDIO S200
+ 59. Plantronics PLT
+ 60. Sony WH-1000XM2
+ 61. DENON AH-C830NCW
+ 62. JBL LIVE FLEX
+ 63. JBL REFLECT MINI NC
+ 64. JBL Everest 310GA
+ 65. JBL LIVE400BT
+ 66. JBL Everest 710GA
+ 67. JBL LIVE650BTNC
+ 68. JBL LIVE500BT
+ 69. LG HBS-1500
+ 70. LG HBS-1010
+ 71. LG HBS-1125
+ 72. LG HBS-930
+ 73. LG HBS-1700
+ 74. LG HBS-2000
+ 75. LG HBS-830
+ 76. LG HBS-1120
+ 77. LG HBS-835
+ 78. JBL VIBE BEAM
+ 79. JBL WAVE BEAM
+ 80. Beoplay H4
+ 81. JBL TUNE 720BT
+ 82. WONDERBOOM 3
+ 83. B&O Beoplay E6
+ 84. JBL LIVE220BT
+ 85. Sony WI-1000X
+ 86. SRS-XB43
+ 87. WI-1000XM2
+ 88. Sony WF-SP700N
+ 89. JBL WAVE FLEX
+ 90. ATH-CKS30TW WH
+ 91. Teufel REAL BLUE TWS 3
+ 92. TAG Heuer Calibre E4 45mm
+ 93. LinkBuds S
+ 94. SRS-XG300
+ 95. boAt Airdopes 441
+ 96. WF-C700N
+ 97. TONE-TF7Q
+ 98. SUMMIT
+ 99. Amazfit PowerBuds
+100. SRS-XB33
+101. M&D MW65
+102. Cleer FLOW II
+103. Panasonic RP-HD610N
+104. soundcore Glow Mini
+105. Pioneer SE-MS9BN
+106. Nirvana Ion
+107. Cleer EDGE Voice
+108. Beoplay H9 3rd Generation
+109. Beats Studio Buds
+110. Michael Kors Darci 5e
+111. B&O Beoplay H8i
+112. YY2963
+113. MOTO BUDS 135
+114. Writing Account Key
+115. Major III Voice
+116. MINOR III
+117. TicWatch Pro 5
+118. Galaxy S21 5G
+119. OPPO Enco Air3 Pro
+120. soundcore Liberty 4 NC
+121. Technics EAH-AZ60M2
+122. Nest Hub Max
+123. JBL Everest 110GA - Gun Metal
+124. JBL Everest 110GA - Silver
+125. JBL Everest 310GA - Brown
+126. JBL Everest 310GA - Gun Metal
+127. JBL Everest 310GA - Silver
+128. JBL Everest 710GA - Gun Metal
+129. JBL Everest 710GA - Silver
+130. JBL TUNE125TWS
+131. JBL LIVE770NC
+132. Fallback Watch
+133. White Watch4 Classic 44m
+134. Black Watch4 Classic 40m
+135. White Watch4 Classic 40m
+136. Black Watch4 44mm
+137. Silver Watch4 44mm
+138. Green Watch4 44mm
+139. Black Watch4 40mm
+140. White Watch4 40mm
+141. Gold Watch4 40mm
+142. French Watch4
+143. French Watch4 Classic
+144. Fox Watch5 44mm
+145. Black Watch5 44mm
+146. Sapphire Watch5 44mm
+147. Purpleish Watch5 40mm
+148. Gold Watch5 40mm
+149. Black Watch5 Pro 45mm
+150. Gray Watch5 Pro 45mm
+151. White Watch5 44mm
+152. White & Black Watch5
+153. Black Watch6 Pink 40mm
+154. Gold Watch6 Gold 40mm
+155. Silver Watch6 Cyan 44mm
+156. Black Watch6 Classic 43m
+157. Green Watch6 Classic 43m

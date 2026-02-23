@@ -1,0 +1,27 @@
+SPIFFS FILES ON DEVICE
+==================================================
+
+  /BLEDelay.txt                       BLE spam delay (ms)
+  /autoUpdate.txt                     Automatic OTA updates (0/1)
+  /captivePortalHTML.txt              Custom HTML for captive portal
+  /creds.txt                          !! STOLEN credentials from captive portal
+  /customWifiNames.txt                Custom WiFi names for beacon spam (CSV)
+  /deauthDelay.txt                    Deauth attack delay (ms)
+  /ducky.txt                          Custom BadBT DuckyScript
+  /duckyDelay.txt                     BadBT script delay (ms)
+  /emergencyMode.txt                  Emergency mode flag (0/1)
+  /enableRandomPass.txt               Random password flag (0/1)
+  /enableScreensaver.txt              Screensaver (0/1)
+  /evilPortalSSID.txt                 Captive portal network SSID
+  /firmware.bin                       
+  /flappyBirdHS.txt                   Flappy Bird high score
+  /isNACodes.txt                      Use North American IR codes (0/1)
+  /keypadSettings.txt                 8 keyboard shortcuts (CSV)
+  /loginPass.txt                      Web panel login password
+  /loginUser.txt                      Web panel login username
+  /numWifiNetworks.txt                Number of WiFi networks for beacon spam
+  /pass.txt                           WiFi password
+  /screensaverTimeout.txt             Screensaver timeout (s)
+  /ssid.txt                           WiFi SSID for connection
+  /txtfile.txt                        Text file for TxtViewer
+  /version.txt                        Firmware version

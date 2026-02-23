@@ -1,0 +1,102 @@
+{
+  "Main menu": [
+    "Bluetooth (BLE Spam Menu)",
+    "Wi-Fi Menu",
+    "Infrared (Control devices)",
+    "Bad-BT (Wireless BadUSB)",
+    "Gaming Menu",
+    "Tools and Others",
+    "Settings (Customize your Nano)"
+  ],
+  "BLE / Bluetooth menu": [
+    "Spam All",
+    "Android devices",
+    "iOS devices",
+    "Windows devices",
+    "Samsung devices"
+  ],
+  "WiFi menu": [
+    "Captive Portal (Fake Google Page)",
+    "Spam APs (Rickroll / Random / Funny / Custom / Targeted)",
+    "Deauth (Disconnect Devices)",
+    "Deauth Checker (Detect deauth attacks)",
+    "Evil AP"
+  ],
+  "Bad-BT menu": [
+    "Custom Scripts",
+    "General Scripts",
+    "Funny Pranks",
+    "Scripts for Android",
+    "Dangerous Scripts"
+  ],
+  "Dangerous scripts": [
+    "Wake Up... (Matrix)",
+    "Beeping",
+    "Crazy Mouse",
+    "Stop Mouse",
+    "Power Off",
+    "KB Spam",
+    "Flood Logs",
+    "Disable KB",
+    "Delete Tabs",
+    "Close Apps",
+    "Spam Tabs",
+    "Screenshots",
+    "See History (Clipboard)",
+    "Spam Rick",
+    "Mouse Flip",
+    "Mouse Back",
+    "Narrator",
+    "Overload (Fork Bomb)",
+    "Open Website",
+    "Jiggler",
+    "Hack Effect",
+    "HackerTyper",
+    "Notepad",
+    "System Info"
+  ],
+  "Infrared menu": [
+    "TV-B-Gone (Turn off all TVs)",
+    "Remote (Transmit commands)",
+    "Receiver (Learn new remote)"
+  ],
+  "Apps": [
+    "Keypad (8 macros)",
+    "TxtViewer (View .txt files)",
+    "TikTok Scroller",
+    "PC Monitor (Work in Progress)",
+    "Stopwatch",
+    "Timer"
+  ],
+  "Games": [
+    "Flappy Bird",
+    "Space Invaders",
+    "Pong w/AI",
+    "Breakout",
+    "T-Rex (No Wi-Fi Game)",
+    "Car Racing (DEMO)"
+  ],
+  "Settings": [
+    "Change Brightness",
+    "Update firmware (OTA)",
+    "Edit Extra Settings"
+  ],
+  "Extra Settings": [
+    "Change Wi-Fi network",
+    "Security Settings (user/pass/random pass)",
+    "Emergency Mode toggle",
+    "BLE Spam Delay",
+    "Deauth Delay",
+    "Max Targeted Networks",
+    "Captive Portal SSID",
+    "Captive Portal HTML upload",
+    "Get/Clear Saved Credentials",
+    "OTA update settings",
+    "BadBT file upload",
+    "BadBT delay",
+    "Keypad macro editor",
+    "TxtViewer file upload",
+    "IR NA codes toggle",
+    "Screensaver settings"
+  ]
+}

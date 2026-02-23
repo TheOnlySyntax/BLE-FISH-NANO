@@ -1,0 +1,18 @@
+HTTP API ENDPOINTS
+==================================================
+
+GET endpoints:
+  GET  /scan
+  GET  /getCreds
+  GET  /getSettings
+  GET  /getKeypadInfo
+  GET  /clearCreds
+  GET  /checkForUpdates
+  GET  /getUserPass
+  GET  /restart
+
+POST endpoints:
+  POST /connect             < Connect to WiFi {ssid, password}
+  POST /applySettings       < Save settings (JSON)
+  POST /uploadfile          < Upload file ?type=0(ducky)|1(txt)|2(html)|3(csv)
+  POST /post                < Receive stolen credentials from captive portal

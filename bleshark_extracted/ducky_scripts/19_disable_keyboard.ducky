@@ -1,0 +1,1 @@
+STRING Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class DisableKeyboard { [DllImport("user32.dll")] public static extern int BlockInput(bool fBlockIt); }'; [DisableKeyboard]::BlockInput($true)

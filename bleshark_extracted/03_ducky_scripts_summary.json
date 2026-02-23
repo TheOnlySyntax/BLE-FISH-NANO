@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "name": "matrix_wake_up",
+    "lines": 68,
+    "file": "ducky_scripts/01_matrix_wake_up.ducky"
+  },
+  {
+    "id": 2,
+    "name": "random_beeping",
+    "lines": 13,
+    "file": "ducky_scripts/02_random_beeping.ducky"
+  },
+  {
+    "id": 3,
+    "name": "crazy_mouse_small",
+    "lines": 19,
+    "file": "ducky_scripts/03_crazy_mouse_small.ducky"
+  },
+  {
+    "id": 4,
+    "name": "shutdown",
+    "lines": 19,
+    "file": "ducky_scripts/04_shutdown.ducky"
+  },
+  {
+    "id": 5,
+    "name": "rickroll_volume",
+    "lines": 14,
+    "file": "ducky_scripts/05_rickroll_volume.ducky"
+  },
+  {
+    "id": 6,
+    "name": "open_website_infishark",
+    "lines": 334,
+    "file": "ducky_scripts/06_open_website_infishark.ducky"
+  },
+  {
+    "id": 7,
+    "name": "mouse_button_swap",
+    "lines": 7,
+    "file": "ducky_scripts/07_mouse_button_swap.ducky"
+  },
+  {
+    "id": 8,
+    "name": "delete_bookmarks",
+    "lines": 314,
+    "file": "ducky_scripts/08_delete_bookmarks.ducky"
+  },
+  {
+    "id": 9,
+    "name": "crazy_mouse_big",
+    "lines": 35,
+    "file": "ducky_scripts/09_crazy_mouse_big.ducky"
+  },
+  {
+    "id": 10,
+    "name": "system_info",
+    "lines": 304,
+    "file": "ducky_scripts/10_system_info.ducky"
+  },
+  {
+    "id": 11,
+    "name": "hackertyper",
+    "lines": 296,
+    "file": "ducky_scripts/11_hackertyper.ducky"
+  },
+  {
+    "id": 12,
+    "name": "open_infishark2",
+    "lines": 286,
+    "file": "ducky_scripts/12_open_infishark2.ducky"
+  },
+  {
+    "id": 13,
+    "name": "fork_bomb_powershell",
+    "lines": 1,
+    "file": "ducky_scripts/13_fork_bomb_powershell.ducky"
+  },
+  {
+    "id": 14,
+    "name": "taskkill_all",
+    "lines": 4,
+    "file": "ducky_scripts/14_taskkill_all.ducky"
+  },
+  {
+    "id": 15,
+    "name": "flood_event_logs",
+    "lines": 4,
+    "file": "ducky_scripts/15_flood_event_logs.ducky"
+  },
+  {
+    "id": 16,
+    "name": "mouse_swap_back",
+    "lines": 10,
+    "file": "ducky_scripts/16_mouse_swap_back.ducky"
+  },
+  {
+    "id": 17,
+    "name": "shining_spam",
+    "lines": 7,
+    "file": "ducky_scripts/17_shining_spam.ducky"
+  },
+  {
+    "id": 18,
+    "name": "jiggler",
+    "lines": 4,
+    "file": "ducky_scripts/18_jiggler.ducky"
+  },
+  {
+    "id": 19,
+    "name": "disable_keyboard",
+    "lines": 1,
+    "file": "ducky_scripts/19_disable_keyboard.ducky"
+  },
+  {
+    "id": 20,
+    "name": "hacker_green_effect",
+    "lines": 228,
+    "file": "ducky_scripts/20_hacker_green_effect.ducky"
+  },
+  {
+    "id": 21,
+    "name": "tts_narrator",
+    "lines": 4,
+    "file": "ducky_scripts/21_tts_narrator.ducky"
+  },
+  {
+    "id": 22,
+    "name": "read_clipboard",
+    "lines": 3,
+    "file": "ducky_scripts/22_read_clipboard.ducky"
+  },
+  {
+    "id": 23,
+    "name": "elevate_powershell",
+    "lines": 4,
+    "file": "ducky_scripts/23_elevate_powershell.ducky"
+  }
+]

@@ -1,0 +1,26 @@
+SPIFFS SOUBORY NA ZARIZENI
+========================================
+
+/enableScreensaver.txt
+/screensaverTimeout.txt
+/customWifiNames.txt
+/isNACodes.txt
+/duckyDelay.txt
+/captivePortalHTML.txt
+/keypadSettings.txt
+/flappyBirdHS.txt
+/emergencyMode.txt
+/txtfile.txt
+/ducky.txt
+/creds.txt
+/autoUpdate.txt
+/evilPortalSSID.txt
+/deauthDelay.txt
+/numWifiNetworks.txt
+/BLEDelay.txt
+/enableRandomPass.txt
+/loginPass.txt
+/loginUser.txt
+/version.txt
+/pass.txt
+/ssid.txt

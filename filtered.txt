@@ -1,0 +1,506 @@
+wpa2 ent enable, invalid param(%p)
+SAE H2E disabled
+sta_scan: STA not exist!
+Error! Should enable WiFi modem sleep when both WiFi and Bluetooth are enabled!!!!!!
+rc_enable_trc fail, no mem
+Anti-Spoof Test
+Anti-Spoof Test 2
+Fast Pair Headphones
+Fast Pair Headphones 2
+Fast Pair Headphones 3
+Fast Pair Headphones 4
+BLE-Phone
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+        <title>BLEShark Settings</title>
+            body, .container, h1, p, form, table, td, input, button, .networks, .network, .password-field, .loader, #status-container, #blur-background, #wifi-animation {
+            .container, h1, p, form, table, td, input, button, .networks, .network, .password-field, .loader, #status-container, #blur-background, #wifi-animation {
+            .container.visible {
+            .container.visible h1 {
+            .container.visible p {
+            .container.visible form {
+            table {
+            .networks.visible {
+            .network.visible {
+            .loader.visible {
+            #status-container.visible {
+            #blur-background.visible {
+            #wifi-animation.visible {
+        <div class="container visible" id="login-container">
+            <h1>Welcome to BLEShark!</h1>
+            <p>Login credentials should be visible on your BLEShark's screen.</p>
+                <table>
+                </table>
+            <h1 id="setup-header">BLEShark Wi-Fi</h1>
+            <p id="setup-description">Press the button below to scan for available WiFi networks.</p>
+            <button onclick="scanNetworks()">Scan Networks</button>
+            <h1 id="settings-header">BLEShark Settings</h1>
+            <p id="settings-description">Customize your BLEShark to its potential.</p>
+            <h1 id="keypad-header">Edit Macros & Commands</h1>
+            <p>Press "restart" to restart your BLEShark & apply the changes.</p>
+            <button onclick="transitionScreens('final-container', 'status-container', restartBLEShark);">Restart</button>
+                    createErrorPopup('Password or username are wrong. Make sure the capitals and numbers are correct! (e.g. bleshark123 
+ BLEShark123 
+                    <h1 id="settings-header">BLEShark Settings</h1>
+                    <p id="settings-description">Customize your BLEShark to its potential.</p>
+                getFromBLEShark();
+                                <button onclick="scanNetworks()" style="width: 40%; margin-left: 13px;">Scan Wi-Fi</button><div id="networks"></div>
+                                <span>Enable Random Password:</span>
+                                <span>BLE Spam Delay:</span>
+                                <input type="number" id="ble-delay" min="1" max="100" style="width: 50px;margin-right: 10px;" />
+                                <span>Enable Screensaver:</span>
+                                    <input type="checkbox" id="enable-screensaver" />
+                        div.classList.add('visible');
+                settingsNetworksDiv.classList.add('visible'); 
+            function scanNetworks() {
+                blurBackground.classList.add('visible');
+                wifiAnimation.classList.add('visible');
+                    fetch('/scan')
+                            blurBackground.classList.remove('visible');
+                            wifiAnimation.classList.remove('visible');
+                            document.getElementById('setup-header').textContent = 'Available Networks';
+                                        No networks found! Press re-scan to try again. If problem persists, restart your BLEShark.
+                                        div.classList.add('visible');
+                            networksDiv.classList.add('visible'); 
+                            blurBackground.classList.remove('visible');
+                            wifiAnimation.classList.remove('visible');
+                // Fetch the saved credentials (from the BLEShark )
+                                    credItem.classList.add('visible');
+                        credsDiv.classList.add('visible');
+                        displayStatus('Success!', 'Check your BLEShark, it should update if there is a new update found.');
+            function getFromBLEShark() {
+                        document.getElementById('security3').checked = settings.enableRandomPass === "1";
+                        document.getElementById('ble-delay').placeholder = settings.BLEDelay;
+                        document.getElementById('enable-screensaver').checked = settings.enableScreensaver === "1";
+                const currentContainer = document.querySelector('.container.visible');
+                    // Populate the input fields with the fetched settings if available
+                            createErrorPopup(`Invalid input at Option ${i}: "${input}". Please use: a letter, a number, or valid commands (github.com/grdashark/BLEShark/wiki/ separated by +.`);
+                    displayStatus('Success!', 'Go back and press "apply settings" to save the macros or commands to the BLEShark!');
+                const enableRandomPass = document.getElementById('security3').checked;
+                const BLEDelay = document.getElementById('ble-delay').value;
+                const enableScreensaver = document.getElementById('enable-screensaver').checked;
+                if (enableRandomPass && loginPassword) {
+                    createErrorPopup("You can't have 'Enable Random Password' enabled with a login password!");
+                if (BLEDelay > 999) {
+                    createErrorPopup("Max BLESpam delay is 999 ms (1 second).");
+                settings.enableRandomPass = enableRandomPass;
+                if (BLEDelay) settings.BLEDelay = BLEDelay;
+                settings.enableScreensaver = enableScreensaver;
+                // Send settings to the BLEShark via HTTP POST
+            function restartBLEShark() {
+                displayStatus("Restarting...", "Your BLEShark will restart in 5");
+                        displayStatus("Restarting...", `Your BLEShark will restart in ${countdown}`);
+                blurBackground.classList.add('visible');
+                wifiAnimation.classList.add('visible');
+                        blurBackground.classList.remove('visible');
+                        wifiAnimation.classList.remove('visible');
+                        blurBackground.classList.remove('visible');
+                        wifiAnimation.classList.remove('visible');
+                        displayStatus('Connection Failed', 'Failed to connect. Press re-scan to go back and try again.', false, true);
+                fromScreen.classList.remove('visible');
+                        toScreen.classList.add('visible');
+                        <p>Press "restart" to restart your BLEShark & apply the changes.</p>
+                        <button onclick="transitionScreens('final-container', 'status-container', restartBLEShark);">Restart</button>
+                        const rescanButton = document.createElement('button');
+                        rescanButton.textContent = "Go Back";
+                        rescanButton.onclick = () => {
+                            rescanButton.remove();
+                        statusContainer.appendChild(rescanButton);
+BLEShark123
+Retrying scan...
+Scanning Wifi
+Scanning...
+Scanning on
+Starting BLE work!
+Free heap before BLE init: 
+'BLEShark Se-
+EnableRandomPass: 
+BLEDelay: 
+Enable Screensaver: 
+BLEShark Settings
+  <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+  <link rel='preconnect' href='https://fonts.gstatic.com' />
+  <link href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap' rel='stylesheet'/>
+    // Disable right-click and Inspect Element
+      // Disable F12, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + U
+        <div class='Lth2jb ' jsname='n7vHCb' jscontroller='rKxYMb' jsaction='rcuQ6b:qg4Ic;Kzwjs:WPi0i;' data-oauth-third-party-logo-url='' aria-hidden='true'><div jsname='jjf7Ff'><div id='logo' class='v8vQje' title='Google'><div class='rr0DNb' jsname='l4eHX'><svg viewBox='0 0 75 24' width='75' height='24' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' class='l5Lhkf'><g id='qaEJec'><path fill='#ea4335' d='M67.954 16.303c-1.33 0-2.278-.608-2.886-1.804l7.967-3.3-.27-.68c-.495-1.33-2.008-3.79-5.102-3.79-3.068 0-5.622 2.41-5.622 5.96 0 3.34 2.53 5.96 5.92 5.96 2.73 0 4.31-1.67 4.97-2.64l-2.03-1.35c-.673.98-1.6 1.64-2.93 1.64zm-.203-7.27c1.04 0 1.92.52 2.21 1.264l-5.32 2.21c-.06-2.3 1.79-3.474 3.12-3.474z'></path></g><g id='YGlOvc'><path fill='#34a853' d='M58.193.67h2.564v17.44h-2.564z'></path></g><g id='BWfIk'><path fill='#4285f4' d='M54.152 8.066h-.088c-.588-.697-1.716-1.33-3.136-1.33-2.98 0-5.71 2.614-5.71 5.98 0 3.338 2.73 5.933 5.71 5.933 1.42 0 2.548-.64 3.136-1.36h.088v.86c0 2.28-1.217 3.5-3.183 3.5-1.61 0-2.6-1.15-3-2.12l-2.28.94c.65 1.58 2.39 3.52 5.28 3.52 3.06 0 5.66-1.807 5.66-6.206V7.21h-2.48v.858zm-3.006 8.237c-1.804 0-3.318-1.513-3.318-3.588 0-2.1 1.514-3.635 3.318-3.635 1.784 0 3.183 1.534 3.183 3.635 0 2.075-1.4 3.588-3.19 3.588z'></path></g><g id='e6m3fd'><path fill='#fbbc05' d='M38.17 6.735c-3.28 0-5.953 2.506-5.953 5.96 0 3.432 2.673 5.96 5.954 5.96 3.29 0 5.96-2.528 5.96-5.96 0-3.46-2.67-5.96-5.95-5.96zm0 9.568c-1.798 0-3.348-1.487-3.348-3.61 0-2.14 1.55-3.608 3.35-3.608s3.348 1.467 3.348 3.61c0 2.116-1.55 3.608-3.35 3.608z'></path></g><g id='vbkDmc'><path fill='#ea4335' d='M25.17 6.71c-3.28 0-5.954 2.505-5.954 5.958 0 3.433 2.673 5.96 5.954 5.96 3.282 0 5.955-2.527 5.955-5.96 0-3.453-2.673-5.96-5.955-5.96zm0 9.567c-1.8 0-3.35-1.487-3.35-3.61 0-2.14 1.55-3.608 3.35-3.608s3.35 1.46 3.35 3.6c0 2.12-1.55 3.61-3.35 3.61z'></path></g><g id='idEJde'><path fill='#4285f4' d='M14.11 14.182c.722-.723 1.205-1.78 1.387-3.334H9.423V8.373h8.518c.09.452.16 1.07.16 1.664 0 1.903-.52 4.26-2.19 5.934-1.63 1.7-3.71 2.61-6.48 2.61-5.12 0-9.42-4.17-9.42-9.29C0 4.17 4.31 0 9.43 0c2.83 0 4.843 1.108 6.362 2.56L14 4.347c-1.087-1.02-2.56-1.81-4.577-1.81-3.74 0-6.662 3.01-6.662 6.75s2.93 6.75 6.67 6.75c2.43 0 3.81-.972 4.69-1.856z'></path></g></svg></div></div></div></div>
+        <div class='aCayab' style='margin: 0; padding: 0;'><div></div><div jscontroller='IIfQad' jsaction='click:cOuCgd; blur:O22p3e; mousedown:UX7yZ; mouseup:lbsD7e; touchstart:p6p2H; touchend:yfqBxc;' class='YZrg6 HnRr5d iiFyne cd29Sd' tabindex='0' role='link' jsname='af8ijd'><div class='gPHLDe'><div class='qQWzTd' aria-hidden='true'><svg aria-hidden='true' class='stUf5b' fill='currentColor' focusable='false' width='23px' height='23px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm6.36 14.83c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6z'></path></svg></div></div><div jsname='fmcmS' class='KTeGk' data-profile-identifier=''><a style='font-size: 12px;' id='email_'>whoami</a></div><div class='krLnGe'><svg aria-hidden='true' class='stUf5b MSBt4d' fill='transparent' focusable='false' width='24px' height='24px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><polygon points='12,16.41 5.29,9.71 6.71,8.29 12,13.59 17.29,8.29 18.71,9.71'></polygon></svg></div></div></div>
+          <a target='_blank' href='https://google.com//>/>'>Forgot Password?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+          <button type='button' onclick='next2()' class='disable-select'>Next</button>
+        <select class='disable-select' name='select'>
+          <span><a target='_blank' class='btn' href='https://support.google.com/accounts?hl=en'>Help</a></span>
+          <span><a target='_blank' class='btn' href='https://accounts.google.com/TOS?loc=US&amp;hl=en&amp;privacy=true'>Privacy</a></span>
+          <span><a target='_blank' class='btn' href='https://accounts.google.com/TOS?loc=US&amp;hl=en'>Terms</a></span>
+    document.getElementById('error').innerHTML = `<span style='margin-top: -40px; text-align: left;' class='jibhHc inline-block'><svg style='text-align: left;' aria-hidden='true' class='stUf5b qpSchb' fill='#d93025' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path></svg><p class='inline-block' style='color: red;'>&nbsp;<a style='color: red; font-weight: 500; margin-top: 10px;'>Enter an email or phone number</p></span></div>`
+    document.getElementById('error').innerHTML = `<span style='margin-top: -40px; text-align: left;' class='jibhHc inline-block'><svg style='text-align: left;' aria-hidden='true' class='stUf5b qpSchb' fill='#d93025' focusable='false' width='16px' height='16px' viewBox='0 0 24 24' xmlns='https://www.w3.org/2000/svg'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'></path></svg><p class='inline-block' style='color: red;'>&nbsp;<a style='color: red; font-weight: 500; margin-top: 10px;'>Enter a password</p></span></div>`;
+.disable-select {
+  src: url(https://jsbin-user-assets.s3.amazonaws.com/rafaelcastrocouto/password.ttf);
+      <div class='Lth2jb ' jsname='n7vHCb' jscontroller='rKxYMb' jsaction='rcuQ6b:qg4Ic;Kzwjs:WPi0i;' data-oauth-third-party-logo-url='' aria-hidden='true'><div jsname='jjf7Ff'><div id='logo' class='v8vQje' title='Google'><div class='rr0DNb' jsname='l4eHX'><svg viewBox='0 0 75 24' width='75' height='24' xmlns='http://www.w3.org/2000/svg' aria-hidden='true' class='l5Lhkf'><g id='qaEJec'><path fill='#ea4335' d='M67.954 16.303c-1.33 0-2.278-.608-2.886-1.804l7.967-3.3-.27-.68c-.495-1.33-2.008-3.79-5.102-3.79-3.068 0-5.622 2.41-5.622 5.96 0 3.34 2.53 5.96 5.92 5.96 2.73 0 4.31-1.67 4.97-2.64l-2.03-1.35c-.673.98-1.6 1.64-2.93 1.64zm-.203-7.27c1.04 0 1.92.52 2.21 1.264l-5.32 2.21c-.06-2.3 1.79-3.474 3.12-3.474z'></path></g><g id='YGlOvc'><path fill='#34a853' d='M58.193.67h2.564v17.44h-2.564z'></path></g><g id='BWfIk'><path fill='#4285f4' d='M54.152 8.066h-.088c-.588-.697-1.716-1.33-3.136-1.33-2.98 0-5.71 2.614-5.71 5.98 0 3.338 2.73 5.933 5.71 5.933 1.42 0 2.548-.64 3.136-1.36h.088v.86c0 2.28-1.217 3.5-3.183 3.5-1.61 0-2.6-1.15-3-2.12l-2.28.94c.65 1.58 2.39 3.52 5.28 3.52 3.06 0 5.66-1.807 5.66-6.206V7.21h-2.48v.858zm-3.006 8.237c-1.804 0-3.318-1.513-3.318-3.588 0-2.1 1.514-3.635 3.318-3.635 1.784 0 3.183 1.534 3.183 3.635 0 2.075-1.4 3.588-3.19 3.588z'></path></g><g id='e6m3fd'><path fill='#fbbc05' d='M38.17 6.735c-3.28 0-5.953 2.506-5.953 5.96 0 3.432 2.673 5.96 5.954 5.96 3.29 0 5.96-2.528 5.96-5.96 0-3.46-2.67-5.96-5.95-5.96zm0 9.568c-1.798 0-3.348-1.487-3.348-3.61 0-2.14 1.55-3.608 3.35-3.608s3.348 1.467 3.348 3.61c0 2.116-1.55 3.608-3.35 3.608z'></path></g><g id='vbkDmc'><path fill='#ea4335' d='M25.17 6.71c-3.28 0-5.954 2.505-5.954 5.958 0 3.433 2.673 5.96 5.954 5.96 3.282 0 5.955-2.527 5.955-5.96 0-3.453-2.673-5.96-5.955-5.96zm0 9.567c-1.8 0-3.35-1.487-3.35-3.61 0-2.14 1.55-3.608 3.35-3.608s3.35 1.46 3.35 3.6c0 2.12-1.55 3.61-3.35 3.61z'></path></g><g id='idEJde'><path fill='#4285f4' d='M14.11 14.182c.722-.723 1.205-1.78 1.387-3.334H9.423V8.373h8.518c.09.452.16 1.07.16 1.664 0 1.903-.52 4.26-2.19 5.934-1.63 1.7-3.71 2.61-6.48 2.61-5.12 0-9.42-4.17-9.42-9.29C0 4.17 4.31 0 9.43 0c2.83 0 4.843 1.108 6.362 2.56L14 4.347c-1.087-1.02-2.56-1.81-4.577-1.81-3.74 0-6.662 3.01-6.662 6.75s2.93 6.75 6.67 6.75c2.43 0 3.81-.972 4.69-1.856z'></path></g></svg></div></div></div></div>
+        <button type='button' href='https://google.com//>/>'><a target='_blank' href='https://google.com//>/>' class='link'>Forgot Email?</a></button>
+        <a target='_blank' href='https://support.google.com/chrome/answer/6130773?hl=en-GB'>Learn more</a>
+        <a target='_blank' href='https://google.com//>/>'>Create account</a>
+        <button type='button' onclick='next()' class='disable-select'>Next</button>
+      <select class='disable-select' name='select'>
+        <span><a target='_blank' class='btn' href='https://support.google.com/accounts?hl=en'>Help</a></span>
+        <span><a target='_blank' class='btn' href='https://accounts.google.com/TOS?loc=US&hl=en&privacy=true'>Privacy</a></span>
+        <span><a target='_blank' class='btn' href='https://accounts.google.com/TOS?loc=US&hl=en'>Terms</a></span>
+Error: BLE Keyboard is not connected.
+STRING BLEShark BADUSB!
+https://api.github.com/repos/grdashark/BLEShark/releases/latest
+BLEShark Nano
+Failed to get firmware tag. HTTP Error: 
+BLEShark - 
+C:\Users\User\Documents\InfiShark Tech\BLEShark\Nano\Code\0.66\battery_sketch\deauth.h
+Update device?
+Welcome to BLEShark!
+https://github.com/grdashark/BLEShark/releases/latest/download/firmware.bin
+HTTP Error code: 
+HTTP Error!!! Code: 
+Initializing BLE Keyboard...
+'BLEShark'
+Waiting for BLE connection...
+BLE connected - setup complete.
+off the BLEShark
+00 | Hello there!,01 | To enter YOUR networks here...,02 | Open 'Extra Settings Mode',03 | (In the settings of,04 | your BLEShark Nano),05 | And upload your CSV,06 | file on the menu.,07 | Now - you'll see,08 | your networks here!.
+Macros & shortcuts
+404 Wi-Fi Unavailable
+DisconnectDevices
+STRING powershell $vol=new-object -com wscript.shell ; For($i=0; $i -le 50; $i++){$vol.SendKeys([char]175)}; start "https://youtu.be/dQw4w9WgXcQ" ;
+STRING https://infishark.com
+Android devices
+iOS devices
+Windows devices
+Control devices
+STRING https://hackertyper.com
+STRING https://www.infishark.com
+STRING Add-Type -TypeDefinition 'using System; using System.Runtime.InteropServices; public class DisableKeyboard { [DllImport("user32.dll")] public static extern int BlockInput(bool fBlockIt); }'; [DisableKeyboard]::BlockInput($true)
+Initializing BLE device...
+Failed to initialize NimBLEDevice
+Creating BLE server...
+Failed to create BLE server!
+Creating HID device...
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src/NimBLEAttValue.h
+Starting BLE advertising...
+Advertising started successfully!
+Failed to start advertising!
+BLETask
+enableRandomPass
+BLEDelay
+enableScreensaver
+Enable Random Login Password: 
+BLE Delay: 
+"enableRandomPass":"
+"BLEDelay":"
+"enableScreensaver":"
+bool NimBLEAttValue::setValue(const uint8_t*, uint16_t)
+Disable KB
+/enableScreensaver.txt
+/BLEDelay.txt
+/enableRandomPass.txt
+, Address: 
+, serviceUUID: 
+UUID: 
+B/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\NimBLEAttValue.h
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\NimBLECharacteristic.cpp
+UUID: 
+void NimBLEAttValue::deepCopy(const NimBLEAttValue&)
+bool NimBLEAttValue::setValue(const uint8_t*, uint16_t)
+NimBLEAttValue::NimBLEAttValue(uint16_t, uint16_t)
+NimBLEDescriptor* NimBLECharacteristic::createDescriptor(const NimBLEUUID&, uint32_t, uint16_t)
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\NimBLEDescriptor.cpp
+NimBLEAttValue::NimBLEAttValue(uint16_t, uint16_t)
+static int NimBLEDescriptor::handleGapEvent(uint16_t, uint16_t, ble_gatt_access_ctxt*, void*)
+c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\NimBLEDevice.cpp
+esp_bt_controller_init(&bt_cfg)
+esp_bt_controller_enable(ESP_BT_MODE_BLE)
+esp_nimble_hci_init()
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\NimBLEDevice.cpp
+static void NimBLEDevice::init(const string&)
+static void NimBLEDevice::onSync()
+ble_hci_trans_hs_cmd_tx
+ble_hci_trans_buf_alloc
+ble_hci_trans_buf_free
+ble_hci_rx_acl
+ble_hci_transport_init
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\esp_port\esp-hci\src\esp_nimble_hci.c
+os_memblock_from(&ble_hci_cmd_pool, buf)
+ble_hci_acl_pool
+ble_hci_cmd_pool
+ble_hci_evt_hi_pool
+ble_hci_evt_lo_pool
+NimBLE
+Bble_svc_gap_device_name_write_access
+ble_svc_gap_appearance_write_access
+ble_svc_gap_access
+ble_svc_gap_init
+uuid16 != 0
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\services\gap\src\ble_svc_gap.c
+ble_svc_gatt_access
+ble_svc_gatt_init
+ctxt->op == BLE_GATT_ACCESS_OP_READ_CHR
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\services\gatt\src\ble_svc_gatt.c
+ctxt->chr == &ble_svc_gatt_defs[0].characteristics[0]
+Bble_att_svr_prep_entry_pool
+ble_att_svr_entry_pool
+ble_gap_rx_conn_complete
+ble_gap_update
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\src\ble_gap.c
+Bble_gattc_proc_pool
+Bble_gatts_clt_cfg_pool
+ble_hs_timer_exp
+ble_hs_event_start_stage2
+ble_hs_start
+ble_hs_init
+ble_hs_hci_ev_pool
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\src\ble_hs.c
+ble_hs_conn_addrs
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\src\ble_hs_conn.c
+ble_hs_conn_pool
+ble_hs_hci_frag
+ ble_hs_stop_begin
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\src\ble_hs_stop.c
+ble_l2cap_append_rx
+ble_l2cap_chan_pool
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\nimble\host\src\ble_l2cap.c
+Bble_l2cap_sig_proc_pool
+Bble_sm_proc_pool
+nimble_bond
+NIMBLE_NVS
+E (%u) %s: nimble host deinit failed
+BLE_INIT
+E (%u) %s: nimble host init failed
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\porting\nimble\src\os_mbuf.c
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\porting\nimble\src\os_msys_init.c
+nimble_host
+/c:\Users\User\Documents\Arduino\libraries\NimBLE-Arduino\src\nimble\porting\npl\freertos\src\npl_os_freertos.c
+HTTP/1.
+Not Acceptable
+Requested range not satisfiable
+Service Unavailable
+HTTP Version not supported
+B HTTP/1.
+httponly
+ESP32HTTPClient
+?void IRrecv::enableIRIn(bool)
+GICABLE
+bool NimBLEAttValue::setValue(const uint8_t*, uint16_t)
+gpio_intr_enable_on_core
+gpio_intr_enable
+gpio_intr_disable
+gpio_input_disable
+gpio_input_enable
+gpio_output_disable
+gpio_output_enable
+gpio_od_disable
+gpio_od_enable
+gpio_wakeup_enable
+gpio_wakeup_disable
+E (%u) %s: %s(%d): i2c null address error
+periph_module_enable
+periph_module_disable
+timer_enable_intr
+timer_disable_intr
+E (%u) %s: %s(%d): HW TIMER PARAM ADDR ERROR
+uart_reenable_intr_mask
+!(is_rs485_mode && disabled && uart_hal_get_intraw_mask(&(uart_context[uart_num].hal)) & UART_INTR_TX_DONE)
+E (%u) %s: ADC2 is no longer supported, please use ADC1. Search for errata on espressif website for more details. You can enable ADC_ONESHOT_FORCE_USE_ADC2_ON_C3 to force use ADC2
+gdma_release_pair_handle
+E (%u) %s: %s(%d): no mem for pair(%d,%d)
+pair && group
+group->pairs[pair_id]
+E (%u) %s: Rollback is not possible, do not have any suitable apps in slots
+E (%u) %s: Segment %d load address 0x%08x, doesn't match data 0x%08x
+E (%u) %s: No MD5 found in partition table
+E (%u) %s: Partition table MD5 mismatch
+DPORT_SEQUENCE_REG_READ((uint32_t)&SOC_MMU_DPORT_PRO_FLASH_MMU_TABLE[i]) & MMU_INVALID
+E (%u) %s: flash encrypted write address must be 16 bytes aligned
+state=%x (%s) addr=%x seq=%d
+  - no details available -
+  faulting address: 
+  byte-enables: 
+<Instruction address misaligned
+Load address misaligned
+Store address misaligned
+access to cache while dbus or cache is disabled
+access to cache while ibus or cache is disabled
+E (%u) %s: %s not supported, please enable it in lwIP component configuration
+Pairwise key expansion
+E (%u) %s: setsockopt SO_REUSEADDR failed
+E (%u) %s: Cellphone IP address is NULL
+E (%u) %s: esp_wifi_get_mac failed with %d
+lwip_sock_make_addr
+Unhandled netconn type in SO_BINDTODEVICE
+fromaddr != NULL
+unknown dns_table entry state:
+netif_do_set_ipaddr
+netif_ip6_addr_set
+netif_ip6_addr_set_parts
+netif_ip6_addr_set_state
+netif_get_ip6_addr_match
+netif_get_ip6_addr_match: invalid netif
+netif_get_ip6_addr_match: invalid ip6addr
+netif_ip6_addr_set: invalid netif
+netif_ip6_addr_set: invalid addr6
+tcp_netif_ip_addr_changed_pcblist
+tcp_netif_ip_addr_changed_pcblist: invalid old_addr
+invalid server address type
+arp_table[i].q == NULL
+arp_table[i].state == ETHARP_STATE_EMPTY
+ipaddr != NULL
+netif->hwaddr_len == ETH_HWADDR_LEN
+arp_table[arp_idx].state >= ETHARP_STATE_STABLE
+netif->hwaddr_len must be the same as ETH_HWADDR_LEN for etharp!
+ip4addr_aton
+IDF/components/lwip/lwip/src/core/ipv4/ip4_addr.c
+icmp6_send_response_with_addrs_and_netif
+netif->hwaddr_len must be 6 for ethernet_output!
+dhcps: ip address and subnet mask do not match.
+lwip_netconn_do_getaddr
+dram_alloc_to_iram_addr
+search_suitable_block
+is_vect_desc_usable
+esp_intr_disable
+esp_efuse_mac_get_default
+E (%u) %s: Base MAC address is NULL
+E (%u) %s: Base MAC must be a unicast MAC
+E (%u) %s: mac address param is NULL
+/IDF/components/esp_hw_support/mac_addr.c
+E (%u) %s: eFuse MAC_CUSTOM is empty
+E (%u) %s: mac type is incorrect
+ESP_ERR_INVALID_MAC
+ESP_ERR_WIFI_MAC
+ESP_ERR_ESP_NETIF_IP6_ADDR_FAILED
+ESP_ERR_HTTP_BASE
+ESP_ERR_HTTP_MAX_REDIRECT
+ESP_ERR_HTTP_CONNECT
+ESP_ERR_HTTP_WRITE_DATA
+ESP_ERR_HTTP_FETCH_HEADER
+ESP_ERR_HTTP_INVALID_TRANSPORT
+ESP_ERR_HTTP_CONNECTING
+ESP_ERR_HTTP_EAGAIN
+ESP_ERR_HTTP_CONNECTION_CLOSED
+ESP_ERR_HTTPS_OTA_BASE
+ESP_ERR_HTTPS_OTA_IN_PROGRESS
+ESP_ERR_HTTPD_BASE
+ESP_ERR_HTTPD_HANDLERS_FULL
+ESP_ERR_HTTPD_HANDLER_EXISTS
+ESP_ERR_HTTPD_INVALID_REQ
+ESP_ERR_HTTPD_RESULT_TRUNC
+ESP_ERR_HTTPD_RESP_HDR
+ESP_ERR_HTTPD_RESP_SEND
+ESP_ERR_HTTPD_ALLOC_MEM
+ESP_ERR_HTTPD_TASK
+ESP_ERR_HW_CRYPTO_DS_HMAC_FAIL
+ESP_ERR_MEMPROT_SPLIT_ADDR_INVALID
+ESP_ERR_MEMPROT_SPLIT_ADDR_OUT_OF_RANGE
+ESP_ERR_MEMPROT_SPLIT_ADDR_UNALIGNED
+E (%u) %s: esp_intr_enable failed (0x%x)
+esp_bt_controller_mem_release
+esp_bt_controller_init
+E (%u) %s: %s controller only support BLE only mode
+E (%u) %s: Invalid value of ble_max_act
+E (%u) %s: SLEEP_MODE_1 enabled but sleep clock not configured
+s_lp_cntl.enable == 1
+E (%u) %s: spiffs partition is not aligned to flash sector size, please check the partition table
+E (%u) %s: failed to erase addr %08x, size %08x, err %d
+E (%u) %s: failed to read addr %08x, size %08x, err %d
+E (%u) %s: failed to write addr %08x, size %08x, err %d
+E (%u) %s: Failed to get count of scanned APs
+E (%u) %s: Failed to get scanned AP records
+E (%u) %s: Failed to start scan
+Funcs table create fails
+Invalid scan backoff upperlimitmax: 0x%x
+BD_ADDR: %02X:%02X:%02X:%02X:%02X:%02X
+EM_BLE_OFFSET: 0x%08x, EM_BLE_END: 0x%08x
+EM_BLE_CS_OFFSET: 0x%08x, EM_BLE_CS_END: 0x%08x
+EM_BLE_WL_OFFSET: 0x%08x, EM_BLE_WL_END: 0x%08x
+EM_BLE_RAL_OFFSET: 0x%08x, EM_BLE_RAL_END: 0x%08x
+EM_BLE_RX_DESC_OFFSET: 0x%08x, EM_BLE_RX_DESC_END: 0x%08x
+EM_BLE_TX_DESC_OFFSET: 0x%08x, EM_BLE_TX_DESC_END: 0x%08x
+EM_BLE_LLCPTXBUF_OFFSET: 0x%08x, EM_BLE_LLCPTXBUF_END: 0x%08x
+EM_BLE_ADVEXTHDRTXBUF_OFFSET: 0x%08x, EM_BLE_ADVEXTHDRTXBUF_END: 0x%08x
+EM_BLE_ADVDATATXBUF_OFFSET: 0x%08x, EM_BLE_ADVDATATXBUF_END: 0x%08x
+EM_BLE_AUXCONNECTREQTXBUF_OFFSET: 0x%08x, EM_BLE_AUXCONNECTREQTXBUF_END: 0x%08x
+EM_BLE_DATARXBUF_OFFSET: 0x%08x, EM_BLE_DATARXBUF_END: 0x%08x
+EM_BLE_ACLTXBUF_OFFSET: 0x%08x, EM_BLE_ACLTXBUF_END: 0x%08x
+lld_scan.c
+llm_scan.c
+?rwble.c
+num_reg <= (range_read_addr_blocks[blk].end - range_read_addr_blocks[blk].start) / sizeof(uint32_t)
+stk_paddr != ((void *)0) && stk_vaddr != ((void *)0)
+cal_mac
+esp_efuse_mac_get_default(sta_mac)
+E (%u) %s: %s: calibration data MAC check failed: expected %02x:%02x:%02x:%02x:%02x:%02x, found %02x:%02x:%02x:%02x:%02x:%02x
+E (%u) %s: %s: store calibration mac failed(0x%x)
+CIPHER - The selected feature is not available
+ECP - The requested feature is not available, for example, the requested curve is not supported
+MD - The selected feature is not available
+PEM - Unavailable feature, e.g. hashing/encryption combination
+PK - Unavailable feature, e.g. RSA disabled for RSA key
+PKCS12 - Feature not available, e.g. unsupported encryption scheme
+PKCS5 - Requested encryption or digest alg not available
+SSL - The requested feature is not available
+SSL - Verification of the message MAC failed
+SSL - None of the common ciphersuites is usable (eg, no suitable certificate, see debug messages)
+SSL - No data of requested type currently available on underlying transport
+X509 - Unavailable feature, e.g. RSA hashing/encryption combination
+AES - Feature not available. For example, an unsupported AES key size
+BIGNUM - The input arguments are not acceptable
+HMAC_DRBG - Too many random requested in single call
+HMAC_DRBG - Input too large (Entropy + additional)
+HMAC_DRBG - Read/write error in file
+HMAC_DRBG - The entropy source failed
+hmacSHA1
+HMAC-SHA-1
+hmacSHA224
+HMAC-SHA-224
+hmacSHA256
+HMAC-SHA-256
+hmacSHA384
+HMAC-SHA-384
+hmacSHA512
+HMAC-SHA-512
+id-kp-wisun-fan-device
+emailAddress
+E-mail address
+id-at-postalAddress
+Postal address
+postalAddress
+E (%u) %s: esp_aes_dma_start failed, no DMA channel available
+E (%u) %s: esp_sha_dma_start failed, no DMA channel available
+The certificate is signed with an unacceptable hash.
+The certificate is signed with an unacceptable PK alg (eg RSA vs ECDSA).
+The certificate is signed with an unacceptable key (eg bad curve, RSA too short).
+The CRL is signed with an unacceptable hash.
+The CRL is signed with an unacceptable PK alg (eg RSA vs ECDSA).
+The CRL is signed with an unacceptable key (eg bad curve, RSA too short).
+pairwise cipher suite count
+pairwise cipher suite
+enabled
+disabled
+sta.scan_method
+ieee80211_scan.c
+from beacon
+ieee80211_scan_inter_chan
+ieee80211_scan_enter_op_chan
+ieee80211_beacon
+ieee80211_send_beacon
+BlmacDiscardFrameExchangeSequence
+lmacProcessCollision
+lmacProcessTxComplete
+lmacProcessShortRetryFail
+lmacProcessLongRetryFail
+lmacProcessCtsTimeout
+lmacProcessAckTimeout
+lmacProcessTxRtsError
+lmacProcessTxError
+lmacTxDone
+lmacProcessTxopQComplete
+lmacProcessTxSuccess
+lmac.c
+not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+nimble
+[%u] Error! Should enable WiFi modem sleep when both WiFi and Bluetooth are enabled!!!!!!
+<cached disabled>
+start_address < 0x1000000
+address + length <= 0x1000000
+E (%u) %s: No response from device when trying to retrieve Unique ID
